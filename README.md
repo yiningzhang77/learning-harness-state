@@ -4,11 +4,15 @@ Private event store for the user's 8Week learning harness.
 
 ## Source of truth
 
-`events/YYYY-MM-DD.jsonl` contains the immutable, normalized event shard for one Asia/Shanghai calendar day.
+The primary source of truth is the set of immutable source-conversation checkpoints under:
 
-Only conversations that actually served as that day's active 8Week learning execution workspace are valid event sources. Learning-related side chats, career discussion, OSS/news browsing, and meta-learning design conversations are excluded unless they were themselves the active execution workspace.
+`raw/YYYY-MM-DD/<workspace_id>/*.json`
 
-Raw evidence should be captured **at the source conversation while its full context is still available**, then reconciled into the daily event shard. The midnight task must not depend on reconstructing arbitrary ChatGPT conversations after the fact.
+Each active learning conversation writes its own evidence **while that conversation still has the full local context**. This removes any dependency on a scheduled task reconstructing arbitrary ChatGPT conversations later.
+
+`events/YYYY-MM-DD.jsonl` is a normalized/derived daily shard when one exists. Existing daily shards remain valid historical artifacts, but future controllers must be able to fold raw checkpoints directly and must not require a midnight reconciliation step.
+
+Only conversations that actually served as an active 8Week learning execution workspace are valid sources. Learning-related side chats, career discussion, OSS/news browsing, and meta-learning design conversations are excluded unless they themselves became an execution workspace.
 
 ## Learning Log Skill
 
@@ -23,19 +27,21 @@ When the user says any short command with the same intent as:
 
 execute this skill without asking the user to restate the logging rules.
 
-The current conversation is authoritative: treat **this chat** as the execution workspace whose learning evidence should be logged. Do not search unrelated chats to make the log look more complete.
+The **current conversation is authoritative**. Treat this chat as the execution workspace whose new learning evidence should be persisted. Do not search unrelated chats to make the log look more complete.
 
 ### Skill procedure
 
 1. Read this `README.md` and `schema.json` from `yiningzhang77/learning-harness-state` before writing.
 2. Resolve the current Asia/Shanghai calendar date.
-3. Treat the current conversation as the source workspace. Recover a human-readable title if available, but do not use the title as identity.
+3. Treat the current conversation as the source workspace. Recover a human-readable title if available, but never use the title as identity.
 4. Resolve or create a stable `workspace_id` in the form `W<week>-YYYYMMDD-NN`. If this chat is continuing a previous workspace, preserve `parent_workspace_id` when known.
-5. Inspect existing `raw/YYYY-MM-DD/` checkpoint files to avoid duplicating evidence already committed from this workspace.
-6. Extract only new, state-changing learning evidence from the current conversation since the last checkpoint. Do not log every question or explanation.
-7. Create a **new immutable checkpoint file** under `raw/YYYY-MM-DD/<workspace_id>/`. Never edit or overwrite an earlier raw checkpoint.
-8. If the user indicates the session/day is finished (`今天学完了`, `收工`, etc.), mark the checkpoint as a closing checkpoint and include current open loops / next dependency. Otherwise keep the workspace open.
+5. Inspect existing checkpoints under `raw/YYYY-MM-DD/<workspace_id>/` and extract only evidence that has not already been persisted.
+6. Extract only **state-changing learning evidence** from the current conversation. Do not log every question or explanation.
+7. Create a NEW immutable checkpoint file under `raw/YYYY-MM-DD/<workspace_id>/`. Never edit or overwrite an earlier checkpoint.
+8. If the command indicates the current session is finished (`今天学完了`, `收工`, etc.), set `closing=true` and include the current open loops and next dependency. The short command `追加今天日志` may be treated as a normal end-of-session checkpoint unless the surrounding conversation clearly indicates learning will continue immediately.
 9. Report the created GitHub path and a concise summary of what was recorded. If persistence fails, show the exact would-be checkpoint and state that it was not persisted.
+
+No midnight logger is required. Persistence happens at the source conversation.
 
 ### What counts as a state-changing checkpoint
 
@@ -79,51 +85,53 @@ A raw checkpoint should preserve provenance and should normally include:
 
 `evidence` should distinguish claim strength where possible, for example: user statement, code implemented, runtime probe passed, official test passed, unseen transfer task passed.
 
-Capability labels are always **evidence under an assistance condition**, not permanent mastery labels. Prefer language such as `L5 evidence under A3` rather than `capability = L5`.
+Capability labels are always **evidence under an assistance condition**, not permanent mastery labels. Prefer `L5 evidence under A3` over `capability = L5`.
 
 ### Workspace handoff
 
 When the user says something like `这个框接 Week1`, `接着 Week1`, or `换框，接着 Week1`:
 
 - treat the current chat as a new execution workspace;
-- read recent raw checkpoints / normalized events to recover the prior open loops;
+- read recent raw checkpoints and any normalized events to recover prior open loops;
 - create a new `workspace_id` if this is a different chat;
 - set `parent_workspace_id` to the prior workspace when recoverable;
 - continue from GitHub state rather than relying on cross-chat memory.
 
 The conversation title is only a label. `workspace_id` is the identity.
 
-## Midnight reconciliation
+### Multiple workspaces in one day
 
-The scheduled midnight logger is a **reconciler, not a conversation retriever**.
+Multiple learning chats in one Asia/Shanghai day are allowed. Each chat writes its own immutable checkpoints. Downstream consumers fold all valid checkpoints for the date in checkpoint/commit order.
 
-For the previous Asia/Shanghai day it should:
+If one workspace stops and another continues the same work, use `parent_workspace_id` to preserve the handoff chain. Do not merge evidence from different chats into a single checkpoint because provenance matters for assistance and capability evaluation.
 
-1. read `schema.json`;
-2. read all raw checkpoints under `raw/YYYY-MM-DD/`;
-3. fail closed if there are no valid raw checkpoints or if provenance is ambiguous;
-4. deduplicate and normalize the raw evidence;
-5. create exactly one immutable `events/YYYY-MM-DD.jsonl` daily shard;
-6. never modify an existing daily shard after successful commit;
-7. include one final `day/summary` object with mainline progress, spiral-CS exposures/blockers, eval evidence, open loops, and failure taxonomy.
+## Downstream consumers
 
-This design intentionally removes the requirement for the midnight task to open or reconstruct arbitrary ChatGPT conversations.
+The 08:00 Learning Daily Controller and the OSS Capability Radar should:
+
+1. read `README.md` and `schema.json`;
+2. fold committed `raw/` checkpoints in date/workspace/checkpoint order;
+3. also read any historical normalized `events/YYYY-MM-DD.jsonl` shards when useful, while avoiding duplicate evidence already represented in raw checkpoints;
+4. derive current state from evidence, not from chat titles or broad cross-chat retrieval;
+5. never modify raw checkpoints.
 
 ## Invariants
 
-1. Append-only by artifact: raw checkpoints are create-only; daily shards are create-only after commit.
+1. Append-only by artifact: raw checkpoints are create-only.
 2. Evidence over vibes: do not infer mastery, completion, exact duration, or independence without evidence.
 3. Assistance is tracked with A0-A4.
 4. Capability evidence is tracked with L1-L6.
 5. Large holdouts must come from real university assignments or real OSS tasks; small transfer probes may be authored directly.
 6. If provenance is ambiguous, fail closed rather than broad-scanning unrelated chats.
 7. If persistence fails, report the exact would-be record and do not claim success.
-8. Source conversations produce raw evidence; midnight reconciliation produces normalized daily state.
+8. Source conversations produce the authoritative evidence stream.
+9. Conversation titles are labels; `workspace_id` is identity.
+10. No scheduled midnight conversation-retrieval/reconciliation step is required.
 
 ## Layout
 
 - `README.md` — operating protocol / Learning Log Skill
-- `schema.json` — normalized event schema and A0-A4 / L1-L6 scales
-- `raw/YYYY-MM-DD/<workspace_id>/*.json` — immutable source-conversation checkpoints
-- `events/YYYY-MM-DD.jsonl` — immutable normalized daily event shards
+- `schema.json` — A0-A4 / L1-L6 scales and normalized schema
+- `raw/YYYY-MM-DD/<workspace_id>/*.json` — authoritative immutable source-conversation checkpoints
+- `events/YYYY-MM-DD.jsonl` — optional/historical normalized daily shards
 - `LearningState/learning-state.jsonl` — legacy/audit record only; not the active source of truth
