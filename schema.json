@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "timezone": "Asia/Shanghai",
+  "event_store": "events/YYYY-MM-DD.jsonl",
+  "assistance_scale": {
+    "A0": "closed book: no GPT, no search",
+    "A1": "official docs/reference allowed",
+    "A2": "hint only",
+    "A3": "guided reasoning",
+    "A4": "code/solution assistance"
+  },
+  "capability_scale": {
+    "L1": "recall",
+    "L2": "understand/explain mechanism",
+    "L3": "evaluate/tradeoffs",
+    "L4": "debug unfamiliar system",
+    "L5": "synthesize/build/modify",
+    "L6": "reflect/abstract/transfer"
+  },
+  "activity_fields": [
+    "seq",
+    "timestamp_or_period",
+    "type",
+    "source_conversation",
+    "track",
+    "topic",
+    "task",
+    "attempt",
+    "evidence",
+    "assistance_level",
+    "strongest_demonstrated_level",
+    "misconceptions_or_failures",
+    "unresolved",
+    "transfer_signals",
+    "next_dependency"
+  ],
+  "summary_fields": [
+    "seq",
+    "date",
+    "type",
+    "execution_sources",
+    "mainline_progress",
+    "spiral_cs",
+    "eval_evidence",
+    "oss_project_evidence",
+    "open_loops",
+    "failure_taxonomy"
+  ],
+  "invariants": {
+    "daily_shard_is_immutable_after_commit": true,
+    "source_scope": "only active 8Week execution workspace(s)",
+    "no_broad_learning_chat_scan": true,
+    "large_holdout_source": "real university assignment or real OSS task",
+    "unsupported_mastery_inference_forbidden": true
+  }
+}
