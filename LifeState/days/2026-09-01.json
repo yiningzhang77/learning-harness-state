@@ -46,7 +46,7 @@
         "1/2 fruit"
       ],
       "meal_duration_minutes": 30,
-      "notes": "Meal was eaten. User plated the food and used a knife and fork, reported that eating this way felt very enjoyable, and spent about 30 minutes on eating alone, which felt dramatically slower than their prior norm."
+      "notes": "Meal was eaten. User plated the food and used a knife and fork, reported that eating this way felt very enjoyable, and spent about 30 minutes on eating alone, which felt dramatically slower than their prior norm. Near the end, with a small piece of potato and some lettuce remaining, the user noticed they did not really want to keep eating those foods. They finished them anyway, then found they could still comfortably eat the remaining half dragon fruit."
     }
   ],
   "exercise": [],
@@ -62,20 +62,24 @@
       "Sleep duration was approximately 7 h 50 min.",
       "Breakfast combined yogurt, oats, fruit, and egg rather than a single-food meal.",
       "The first plated knife-and-fork lunch produced a clearly positive subjective response.",
-      "The plated lunch lasted about 30 minutes, substantially slower than the user's prior eating pace."
+      "The plated lunch lasted about 30 minutes, substantially slower than the user's prior eating pace.",
+      "A meal-ending signal appeared before the plate was empty: the user no longer wanted the remaining potato and lettuce, while a different food (dragon fruit) still felt easy to eat afterward."
     ],
     "uncertainties": [
       "Exact breakfast time was not reported.",
       "Lettuce portion was not quantified.",
-      "It is not yet known whether the slower meal pace changes satiety, later hunger, portion size, or digestion-related comfort."
+      "It is not yet known whether the late-meal loss of interest reflected physical fullness, sensory-specific satiety, preference for the fruit, or some combination.",
+      "It is not yet known whether the slower meal pace changes later hunger, portion size, or digestion-related comfort."
     ],
     "exploratory_questions": [
+      "When the user first reaches a natural 'I don't really want more of this' point, what happens if they stop there for 5-10 minutes instead of finishing automatically?",
+      "Does switching to a different sensory profile such as cool/sweet fruit reliably restore appetite even when savory food no longer appeals?",
       "Does a 25-30 minute meal remain natural once the novelty of the plate-and-utensil setup fades?",
-      "Does the slower pace make fullness noticeable before the plate is empty, or mainly make the meal feel more satisfying?",
       "After this lunch, how long does satiety last before hunger returns compared with faster meals?"
     ],
     "next_observations": [
-      "Notice whether meal duration stays longer without deliberately forcing slowness.",
+      "Notice the first spontaneous meal-ending signal before the plate is empty, without forcing a stop.",
+      "Notice whether wanting a different food is distinct from actually feeling physically hungry.",
       "Notice post-meal fullness, comfort, and when hunger returns; no need to time them precisely."
     ]
   }
