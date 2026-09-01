@@ -66,6 +66,13 @@
       "notes": "Current amount reported by user."
     },
     {
+      "name": "corn on the cob",
+      "quantity": null,
+      "unit": "count_untracked",
+      "priority": "normal",
+      "notes": "User reports having several ears, including frozen and vacuum-sealed corn. Exact count is not yet recorded."
+    },
+    {
       "name": "Yulin-style jinbing (筋饼)",
       "quantity": 1,
       "unit": "package",
@@ -98,7 +105,7 @@
     {
       "date": "2026-09-02",
       "meal": "dinner",
-      "plan": "Stew beef short ribs with a seasoning packet; consider adding onion for sweetness and body; drink some broth with cilantro; steam one potato separately as the main starch rather than putting potato into the stew."
+      "plan": "Stew beef short ribs with a seasoning packet and one onion; add one ear of corn to the stew; drink some broth with cilantro; steam one potato separately as the main starch rather than putting potato into the stew."
     },
     {
       "date": "future_second_beef_rib_meal",
