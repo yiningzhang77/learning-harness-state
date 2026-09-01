@@ -55,8 +55,8 @@
       "name": "beef short ribs",
       "quantity": 5,
       "unit": "kg",
-      "priority": "storage_check",
-      "notes": "Quantity confirmed by user as 5 kg. Delivery/storage state not yet confirmed."
+      "priority": "frozen_bulk",
+      "notes": "Quantity confirmed by user as 5 kg. Arrival confirmed by user photo on 2026-09-01; shown as large frozen vacuum-packed pieces. Visible package label states storage at -18°C."
     },
     {
       "name": "onions",
