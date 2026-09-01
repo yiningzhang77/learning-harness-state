@@ -47,16 +47,32 @@
       ],
       "meal_duration_minutes": 30,
       "notes": "Meal was eaten. User plated the food and used a knife and fork, reported that eating this way felt very enjoyable, and spent about 30 minutes on eating alone, which felt dramatically slower than their prior norm. Near the end, with a small piece of potato and some lettuce remaining, the user noticed they did not really want to keep eating those foods. They finished them anyway, then found they could still comfortably eat the remaining half dragon fruit. Afterward the user described fullness as gradual rather than an abrupt jump from not-full to very-full, and said the post-meal fruit felt unexpectedly pleasurable."
+    },
+    {
+      "time": "17:50",
+      "meal": "dinner",
+      "items": [
+        "rice",
+        "egg",
+        "leftover cooked dish from previous morning"
+      ],
+      "amounts": [
+        "amount not recorded",
+        "1 egg planned",
+        "amount not recorded"
+      ],
+      "meal_duration_minutes": null,
+      "notes": "Planned dinner at time of logging. User was hungry while waiting for beef ribs that likely would not arrive today and was deciding whether to make egg fried rice and reheat the leftover dish or use a simpler dinner composition. Consumption not yet confirmed."
     }
   ],
   "exercise": [],
   "body_state": {
     "weight_kg": null,
     "waist_cm": null,
-    "hunger": "After lunch, user described a gradual, comfortable sense of fullness rather than a sudden transition to being very full."
+    "hunger": "After lunch, user described a gradual, comfortable sense of fullness rather than a sudden transition to being very full. Around 17:50, user reported being hungry again."
   },
   "context": {
-    "other": "User discovered they strongly enjoy eating plated meals with a knife and fork; the lunch took about 30 minutes of eating alone, a pace they described as previously unheard of for them. The user also discovered that eating fruit after the meal felt unexpectedly pleasurable. This may be a useful low-friction meal ritual worth observing rather than formalizing too early."
+    "other": "User discovered they strongly enjoy eating plated meals with a knife and fork; the lunch took about 30 minutes of eating alone, a pace they described as previously unheard of for them. The user also discovered that eating fruit after the meal felt unexpectedly pleasurable. Beef ribs expected for dinner were delayed and might not arrive today."
   },
   "assistant_analysis": {
     "observed_patterns": [
@@ -66,25 +82,29 @@
       "The plated lunch lasted about 30 minutes, substantially slower than the user's prior eating pace.",
       "A meal-ending signal appeared before the plate was empty: the user no longer wanted the remaining potato and lettuce, while a different food (dragon fruit) still felt easy to eat afterward.",
       "Post-meal fullness was experienced as a gradual ramp rather than an abrupt threshold.",
-      "The post-meal fruit added a strong positive sensory and emotional finish to the meal."
+      "The post-meal fruit added a strong positive sensory and emotional finish to the meal.",
+      "Hunger returned by about 17:50 after the midday meal."
     ],
     "uncertainties": [
       "Exact breakfast time was not reported.",
       "Lettuce portion was not quantified.",
       "It is not yet known whether the late-meal loss of interest reflected physical fullness, sensory-specific satiety, preference for the fruit, or some combination.",
       "It is not yet known whether the slower meal pace changes later hunger, portion size, or digestion-related comfort.",
-      "It is not yet known whether the strong enjoyment of post-meal fruit persists once the novelty wears off."
+      "Dinner composition and amount have not yet been confirmed.",
+      "Storage conditions of the leftover cooked dish were not reported."
     ],
     "exploratory_questions": [
       "Does the gradual fullness signal become easier to notice across future slow meals?",
       "Is post-meal fruit satisfying because of sweetness, temperature, juiciness, contrast with the savory meal, or simply the ritual of having a distinct ending?",
       "When the user first reaches a natural 'I don't really want more of this' point, what happens if they stop there for 5-10 minutes instead of finishing automatically?",
-      "Does a 25-30 minute meal remain natural once the novelty of the plate-and-utensil setup fades?"
+      "Does a 25-30 minute meal remain natural once the novelty of the plate-and-utensil setup fades?",
+      "How satisfying is a simple rice-plus-protein-plus-leftovers dinner compared with a more oil-intensive fried-rice version?"
     ],
     "next_observations": [
       "Notice whether fullness continues to rise gradually during future meals and whether there is a recognizable point where eating naturally wants to stop.",
       "Notice whether fruit still feels like a satisfying meal ending on days when the main meal is different.",
-      "Notice whether wanting a different food is distinct from actually feeling physically hungry."
+      "Notice whether wanting a different food is distinct from actually feeling physically hungry.",
+      "After dinner, notice whether the meal feels complete without needing a larger or richer preparation."
     ]
   }
 }
