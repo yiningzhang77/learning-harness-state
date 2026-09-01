@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Checkpoint",
+  "description": "Daily or session checkpoint summarizing work, evidence, diagnostics references, capability state, and next actions.",
+  "type": "object",
+  "required": ["schema_version", "date", "work_items", "diagnostics_refs", "next"],
+  "properties": {
+    "schema_version": {"type": "integer", "minimum": 1},
+    "date": {"type": "string", "format": "date"},
+    "source": {"type": "string"},
+    "work_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task", "status"],
+        "properties": {
+          "task": {"type": "string"},
+          "status": {"type": "string"},
+          "timing": {"type": "object"},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "diagnostics_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "capability_summary": {"type": "object"},
+    "assistance_summary": {"type": "string"},
+    "reflection": {"type": "object"},
+    "open_items": {"type": "array", "items": {"type": "string"}},
+    "next": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
