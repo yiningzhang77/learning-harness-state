@@ -74,7 +74,9 @@
     "hunger": "After lunch, user described a gradual, comfortable sense of fullness rather than a sudden transition to being very full. Around 17:50, user reported being hungry again. After dinner, user described the meal as more than intended."
   },
   "context": {
-    "other": "User discovered they strongly enjoy eating plated meals with a knife and fork; the lunch took about 30 minutes of eating alone, a pace they described as previously unheard of for them. The user also discovered that eating fruit after the meal felt unexpectedly pleasurable. Beef ribs expected for dinner were delayed and might not arrive today. Dinner used available leftovers instead; the dish was spicy, which the user felt pushed intake upward and was followed by cooling/sweet foods."
+    "learning_load": "Google Calendar captured four code/study blocks with 220 minutes (3 h 40 min) of effective focus: 09:56-10:46, 15:17-16:53, 16:57-17:49, and 19:04-19:34. User felt this was less learning than desired.",
+    "stress_or_interruptions": "User reported substantial unplanned phone use after lunch (roughly one to two hours by their estimate), more phone use after dinner, and another interruption when the 5 kg beef-rib delivery arrived and had to be fitted into the freezer, followed by more phone use. Calendar also explicitly captured a 21:00-22:00 Douyin + Xiaohongshu block.",
+    "other": "User discovered they strongly enjoy eating plated meals with a knife and fork; the lunch took about 30 minutes of eating alone, a pace they described as previously unheard of for them. The user also discovered that eating fruit after the meal felt unexpectedly pleasurable. Dinner used available leftovers; the dish was spicy, which the user felt pushed intake upward and was followed by cooling/sweet foods. The 5 kg beef-rib delivery arrived later in the evening and created a practical storage interruption."
   },
   "assistant_analysis": {
     "observed_patterns": [
@@ -86,29 +88,29 @@
       "Post-meal fullness was experienced as a gradual ramp rather than an abrupt threshold.",
       "The post-meal fruit added a strong positive sensory and emotional finish to the meal.",
       "Hunger returned by about 17:50 after the midday meal.",
-      "At dinner, a spicy leftover dish coincided with eating nearly all available rice and leftovers, then adding watermelon and an ice pop."
+      "At dinner, a spicy leftover dish coincided with eating nearly all available rice and leftovers, then adding watermelon and an ice pop.",
+      "Effective study time was 3 h 40 min according to the synced calendar blocks, but the user's subjective dissatisfaction came from large transition gaps rather than an inability to sustain long focused blocks.",
+      "Phone use repeatedly appeared at transition points: after meals and after an external interruption, suggesting that re-entry into the main task may be a more important bottleneck than focus duration once work has started."
     ],
     "uncertainties": [
       "Exact breakfast time was not reported.",
       "Lettuce portion was not quantified.",
       "It is not yet known whether the late-lunch loss of interest reflected physical fullness, sensory-specific satiety, preference for the fruit, or some combination.",
-      "It is not yet known whether the slower meal pace changes later hunger, portion size, or digestion-related comfort.",
       "Dinner amounts were described relative to what was available rather than weighed or measured.",
-      "It is not yet clear whether dinner intake was driven mainly by true hunger, the spicy flavor prompting more rice, the desire for cooling/sweet contrast afterward, or a combination.",
-      "Whether the previously considered egg was actually eaten at dinner was not confirmed."
+      "Whether the previously considered egg was actually eaten at dinner was not confirmed.",
+      "Total phone-use duration cannot be reconstructed exactly from the calendar because some reported phone use was not separately logged."
     ],
     "exploratory_questions": [
-      "Does the gradual fullness signal become easier to notice across future slow meals?",
-      "Is post-meal fruit satisfying because of sweetness, temperature, juiciness, contrast with the savory meal, or simply the ritual of having a distinct ending?",
+      "Is the main learning bottleneck on independent-living days the duration of focused blocks, or the probability of returning to work after meals and interruptions?",
+      "What is the smallest reliable 'resume cue' after lunch or an interruption that gets the user back into the previous task before the phone captures the transition?",
+      "Does putting a clear next action on screen before leaving the desk reduce post-meal re-entry friction?",
       "When a meal is spicy, does the user tend to eat more starch specifically to buffer the heat, and then seek cold or sweet foods afterward?",
-      "Would plating a smaller first serving of a spicy dish and leaving the rest off the table change intake without feeling restrictive?",
       "Does a 25-30 minute meal remain natural once the novelty of the plate-and-utensil setup fades?"
     ],
     "next_observations": [
-      "Notice whether fullness continues to rise gradually during future meals and whether there is a recognizable point where eating naturally wants to stop.",
-      "Notice whether fruit still feels like a satisfying meal ending on days when the main meal is different.",
-      "On another spicy meal, notice whether the urge is specifically for more rice, for something cold/sweet, or for more food in general.",
-      "No compensation is required; observe what normal hunger feels like at the next meal."
+      "Notice the first 10-20 minutes after meals and external interruptions: whether the phone appears automatically and how easy it is to reopen the exact prior task.",
+      "Notice whether leaving a concrete next step before a break changes re-entry speed.",
+      "Continue observing gradual fullness and meal-ending signals without turning them into a score or quota."
     ]
   }
 }
