@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Diagnostics Day",
+  "description": "Daily diagnostic view preserving concrete learning collisions, cue/recovery behavior, and provisional pattern clustering.",
+  "type": "object",
+  "required": ["schema_version", "date", "collisions", "pattern_summary", "systematic_review_candidates"],
+  "properties": {
+    "schema_version": {"type": "integer", "minimum": 1},
+    "schema_ref": {"type": "string"},
+    "date": {"type": "string", "format": "date"},
+    "source": {"type": "string"},
+    "source_event_seq": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
+    "session_evidence": {"type": "array", "items": {"type": "string"}},
+    "collisions": {
+      "type": "array",
+      "items": {"$ref": "./learning-collision.schema.json"}
+    },
+    "pattern_summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["recurrence_key", "collision_ids", "observation", "status"],
+        "properties": {
+          "recurrence_key": {"type": "string"},
+          "collision_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "observation": {"type": "string"},
+          "working_hypothesis": {"type": ["string", "null"]},
+          "status": {"type": "string", "enum": ["observe", "watch", "candidate-for-drill", "resolved", "reopened"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "systematic_review_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target", "reason", "status"],
+        "properties": {
+          "target": {"type": "string"},
+          "reason": {"type": "string"},
+          "status": {"type": "string", "enum": ["watch", "candidate-for-drill", "defer"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
