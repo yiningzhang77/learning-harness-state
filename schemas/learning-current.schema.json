@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Current",
+  "description": "Derived current learning view folded from append-only LearningState and LearningDiagnostics. This is not a source-of-truth event log.",
+  "type": "object",
+  "required": ["schema_version", "as_of", "active", "capability_summary", "open_items", "next"],
+  "properties": {
+    "schema_version": {"type": "integer", "minimum": 1},
+    "as_of": {"type": "string", "format": "date-time"},
+    "active": {
+      "type": "object",
+      "properties": {
+        "assignment": {"type": "string"},
+        "phase": {"type": "string"},
+        "status": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "capability_summary": {"type": "object"},
+    "recent_diagnostics": {"type": "array", "items": {"type": "string"}},
+    "recurring_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["recurrence_key", "status"],
+        "properties": {
+          "recurrence_key": {"type": "string"},
+          "observed_count": {"type": "integer", "minimum": 1},
+          "status": {"type": "string", "enum": ["observe", "watch", "candidate-for-drill", "resolved", "reopened"]},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "open_items": {"type": "array", "items": {"type": "string"}},
+    "next": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
