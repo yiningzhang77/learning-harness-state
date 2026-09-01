@@ -59,6 +59,13 @@
       "notes": "Quantity confirmed by user as 5 kg. Delivery/storage state not yet confirmed."
     },
     {
+      "name": "onions",
+      "quantity": 2,
+      "unit": "count",
+      "priority": "normal",
+      "notes": "Current amount reported by user."
+    },
+    {
       "name": "instant oats",
       "quantity": null,
       "unit": "untracked",
@@ -79,7 +86,7 @@
     {
       "date": "2026-09-02",
       "meal": "dinner",
-      "plan": "Stew beef short ribs with a seasoning packet; drink some broth with cilantro; steam one potato separately as the main starch rather than putting potato into the stew."
+      "plan": "Stew beef short ribs with a seasoning packet; consider adding onion for sweetness and body; drink some broth with cilantro; steam one potato separately as the main starch rather than putting potato into the stew."
     },
     {
       "date": "future_second_beef_rib_meal",
