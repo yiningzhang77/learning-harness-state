@@ -2,7 +2,9 @@
 
 This file defines how the Learning Daily Controller decides **when to introduce which system-design questions and how deep the user's answer is expected to go**.
 
-The controller must gate by demonstrated evidence in `raw/` checkpoints, not by calendar week, confidence, or topic familiarity alone.
+The controller must gate progression by demonstrated learning evidence in `LearningState/learning-state.jsonl` and, when relevant, concrete failure/recovery evidence in `LearningDiagnostics/`. Do not gate by calendar week, confidence, topic familiarity, or historical `raw/` checkpoint layout.
+
+Non-learning state may influence **when** and **how** a system-design task is scheduled, but not the capability rating itself. For example, Calendar fragmentation or poor recovery may justify moving an interview-style exercise to another block/day; it must not be interpreted as lower system-design capability.
 
 ## Exposure modes
 
@@ -169,18 +171,22 @@ AI-specific unlock evidence should include several of:
 
 The Learning Daily Controller must maintain a separate `System Design` lane every day, even when it assigns no system-design question.
 
-The lane should report:
+The lane should internally track:
 
 - `current_stage`: SD0–SD4 (stage can be multi-dimensional; e.g. backend SD1 while AI-specific preview is SD4-PREVIEW);
 - `current_answer_depth`: SD-D0–SD-D4;
 - `exposure_mode`: HOLD / PREVIEW / PRACTICE / INTERVIEW;
-- `evidence_basis`: concrete raw checkpoints supporting the rating;
-- `next_unlock`: the smallest missing evidence needed for the next stage/depth;
+- `evidence_basis`: concrete `LearningState` event seqs and/or `LearningDiagnostics` collision IDs supporting the rating;
+- `next_unlock`: the smallest missing learning evidence needed for the next stage/depth;
 - `candidate_question`: at most one question when useful;
 - `expected_answer_contract`: exactly what the user is expected to cover now, and what is explicitly *not* required yet;
 - `assistance_cap`: A0–A4 appropriate to the mode;
 - `promotion_test`: what evidence would justify increasing answer depth or moving to INTERVIEW mode.
 
 Do not assign a system-design question merely because one is famous or commonly asked. Prefer questions whose primitives intersect with the user's current real work, so system design consolidates engineering experience instead of becoming vocabulary memorization.
+
+Use `LearningDiagnostics` to distinguish a true design-model gap from a local expression/automaticity collision. A recurring Python syntax/API issue should not automatically lower system-design stage if the architectural decomposition is independently demonstrated; conversely, repeated missing system boundaries or state-lifetime reasoning may justify holding a deeper design mode.
+
+Cross-domain state may alter task placement and cognitive demand, not readiness evidence. Calendar, LifeState, TrainingState, or other external context may justify choosing PREVIEW instead of an INTERVIEW exercise **today**, while leaving the underlying learning evidence unchanged.
 
 Do not equate familiarity with readiness. Do not treat a polished GPT-assisted answer as independent interview evidence.
