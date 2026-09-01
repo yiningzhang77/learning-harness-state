@@ -24,6 +24,7 @@
         "meal": "breakfast|lunch|dinner|snack|other",
         "items": ["free-text food item"],
         "amounts": ["optional free-text amount"],
+        "meal_duration_minutes": "number|null",
         "notes": "optional free text"
       }
     ],
