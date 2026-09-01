@@ -66,6 +66,13 @@
       "notes": "Current amount reported by user."
     },
     {
+      "name": "Yulin-style jinbing (筋饼)",
+      "quantity": 1,
+      "unit": "package",
+      "priority": "room_temp_ok_if_unopened",
+      "notes": "Visible package label states room-temperature storage away from light or frozen storage; shelf life 21 days at room temperature and 12 months frozen. User is considering eating it for breakfast on 2026-09-02."
+    },
+    {
       "name": "instant oats",
       "quantity": null,
       "unit": "untracked",
@@ -83,6 +90,11 @@
     }
   ],
   "meal_intentions": [
+    {
+      "date": "2026-09-02",
+      "meal": "breakfast",
+      "plan": "Possible breakfast: heat jinbing and pair with egg; prioritize the wrinkled mango as fruit."
+    },
     {
       "date": "2026-09-02",
       "meal": "dinner",
