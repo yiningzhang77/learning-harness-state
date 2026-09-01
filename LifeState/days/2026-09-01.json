@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-01",
+  "sleep": {
+    "periods": [
+      {
+        "start": "01:00",
+        "end": "08:50",
+        "duration_minutes": 470,
+        "kind": "main"
+      }
+    ],
+    "total_minutes": 470,
+    "notes": "User reported approximate sleep window."
+  },
+  "food": [
+    {
+      "time": "morning",
+      "meal": "breakfast",
+      "items": [
+        "Greek yogurt",
+        "instant oats",
+        "dragon fruit",
+        "egg"
+      ],
+      "amounts": [
+        "100 g",
+        "50 g",
+        "1/2 fruit",
+        "1 egg"
+      ]
+    },
+    {
+      "time": "midday",
+      "meal": "lunch",
+      "items": [
+        "potato",
+        "egg",
+        "lettuce",
+        "remaining dragon fruit"
+      ],
+      "amounts": [
+        "1 potato",
+        "1 egg",
+        "amount undecided",
+        "1/2 fruit"
+      ],
+      "notes": "Planned meal at time of logging; consumption not yet confirmed."
+    }
+  ],
+  "exercise": [],
+  "body_state": {
+    "weight_kg": null,
+    "waist_cm": null
+  },
+  "context": {
+    "other": "User is considering buying a plate with knife and fork to make meals slower and more deliberate."
+  },
+  "assistant_analysis": {
+    "observed_patterns": [
+      "Sleep duration was approximately 7 h 50 min.",
+      "Breakfast combined yogurt, oats, fruit, and egg rather than a single-food meal."
+    ],
+    "uncertainties": [
+      "Exact breakfast time was not reported.",
+      "Lunch was planned but not yet confirmed eaten.",
+      "Lettuce size and final portion are unknown."
+    ],
+    "exploratory_questions": [
+      "Does eating from a plated meal with utensils noticeably change meal pace or fullness compared with eating foods separately or by hand?",
+      "After the potato-egg-lettuce-fruit lunch, how long does satiety last before hunger returns?"
+    ],
+    "next_observations": [
+      "Notice post-meal fullness and when hunger returns; no need to time it precisely."
+    ]
+  }
+}
