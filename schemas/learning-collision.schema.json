@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Collision",
+  "description": "One observed point where intended reasoning or implementation failed to fully generate. Facts are separated from working hypotheses.",
+  "type": "object",
+  "required": [
+    "collision_id",
+    "date",
+    "context",
+    "intent_already_known",
+    "observed_attempt",
+    "observed_failure",
+    "missing_dimension",
+    "recovery",
+    "classification",
+    "recurrence_key"
+  ],
+  "properties": {
+    "collision_id": {"type": "string", "pattern": "^C-[0-9]{8}-[0-9]{3}$"},
+    "date": {"type": "string", "format": "date"},
+    "context": {"type": "string", "minLength": 1},
+    "task": {"type": "string"},
+    "stage": {
+      "type": "string",
+      "enum": [
+        "representation-boundary",
+        "api-syntax",
+        "control-flow",
+        "state-lifetime",
+        "protocol-framing",
+        "data-structure-use",
+        "test-reading",
+        "runtime-model",
+        "conceptual-model",
+        "other"
+      ]
+    },
+    "intent_already_known": {"type": "string", "minLength": 1},
+    "observed_attempt": {"type": "string", "minLength": 1},
+    "observed_failure": {"type": "string", "minLength": 1},
+    "missing_dimension": {"type": "string", "minLength": 1},
+    "repair": {"type": "string"},
+    "working_hypothesis": {"type": ["string", "null"]},
+    "recovery": {
+      "type": "object",
+      "required": ["cue_level", "outcome"],
+      "properties": {
+        "cue_level": {"type": "string", "enum": ["A0", "A1", "A2", "A3", "A4"]},
+        "cue": {"type": ["string", "null"]},
+        "outcome": {
+          "type": "string",
+          "enum": ["independent", "immediate-after-cue", "partial-after-cue", "after-explanation", "not-yet-recovered"]
+        },
+        "user_reconstructed": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "classification": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "recurrence_key": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "review_status": {
+      "type": "string",
+      "enum": ["observe", "watch", "candidate-for-drill", "resolved", "reopened"]
+    }
+  },
+  "additionalProperties": false
+}
