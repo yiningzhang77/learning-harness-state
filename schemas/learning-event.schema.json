@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Event",
+  "description": "Base envelope for append-only LearningState events. Event-specific payloads remain extensible.",
+  "type": "object",
+  "required": ["seq", "ts", "type"],
+  "properties": {
+    "seq": {"type": "integer", "minimum": 1},
+    "ts": {"type": "string", "format": "date-time"},
+    "type": {"type": "string", "minLength": 1},
+    "effective_date": {"type": "string", "format": "date"},
+    "source": {"type": "string"},
+    "assignment": {"type": "string"},
+    "component": {"type": "string"},
+    "status": {"type": "string"},
+    "timing": {"type": "object"},
+    "work": {"type": "object"},
+    "capability": {"type": "object"},
+    "assistance": {"type": ["object", "string"]},
+    "tracks": {"type": "object"},
+    "diagnostics_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}
