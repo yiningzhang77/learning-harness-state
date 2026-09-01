@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "schema_ref": "../schemas/learning-diagnostics-day.schema.json",
+  "date": "2026-09-01",
+  "source": "conversation",
+  "source_event_seq": [13, 14, 15],
+  "session_evidence": [
+    "Cold-reconstructed Application.serve from the MP7 spec without consulting the old serve implementation.",
+    "WSL2: pytest -q test_webserver.py -> 28 passed in 21.14s.",
+    "Reviewed test_no_routes, test_chopped_message, test_several_message, and the apprunner generator harness as executable specifications."
+  ],
+  "collisions": [
+    {
+      "collision_id": "C-20260901-001",
+      "date": "2026-09-01",
+      "context": "Application.serve: beginning HTTP framing from asyncio.StreamReader",
+      "task": "Cold-reconstruct the request read/framing loop",
+      "stage": "representation-boundary",
+      "intent_already_known": "The server needed to receive HTTP data and find the header boundary.",
+      "observed_attempt": "Tried to apply byte-oriented operations such as find() directly to the StreamReader before reinstating the read -> chunk -> buffer boundary.",
+      "observed_failure": "StreamReader is the stream source object, not the bytes value being parsed.",
+      "missing_dimension": "Acquisition object versus data representation: await reader.read(n) produces bytes; parsing belongs on bytes held in a buffer.",
+      "repair": "Read a chunk with await reader.read(4096), append it to a bytes buffer, and parse the buffer.",
+      "working_hypothesis": "The architectural goal was retained, but the concrete API/data boundary was not yet automatic during cold generation.",
+      "recovery": {
+        "cue_level": "A2",
+        "cue": "StreamReader is the faucet; chunk/buffer are the water/bytes.",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["python-api-automaticity", "representation-boundary", "asyncio-io"],
+      "recurrence_key": "io-object-vs-data",
+      "evidence": ["Initial serve draft operated on reader where bytes operations were required."],
+      "review_status": "watch"
+    },
+    {
+      "collision_id": "C-20260901-002",
+      "date": "2026-09-01",
+      "context": "Application.serve: preserving partial HTTP requests across read() calls",
+      "task": "Cold-reconstruct the persistent request buffer",
+      "stage": "state-lifetime",
+      "intent_already_known": "A request can arrive incompletely and needs a buffer.",
+      "observed_attempt": "Initialized buffer = b'' inside the outer read loop.",
+      "observed_failure": "Each new read iteration would discard bytes from prior chunks, so a delimiter split across reads could never be reconstructed.",
+      "missing_dimension": "The lifetime of the state: buffer must live for the connection, not for one read iteration.",
+      "repair": "Initialize buffer before the outer read loop and only remove bytes after a complete request is consumed.",
+      "working_hypothesis": "The need for state was known before the required scope/lifetime of that state was checked.",
+      "recovery": {
+        "cue_level": "A2",
+        "cue": "What happens if one request is split across multiple reads?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["state-lifetime", "control-flow", "protocol-framing"],
+      "recurrence_key": "state-lifetime-scope",
+      "evidence": ["test_chopped_message later made this failure mode explicit by splitting CRLFCRLF across sends."],
+      "review_status": "candidate-for-drill"
+    },
+    {
+      "collision_id": "C-20260901-003",
+      "date": "2026-09-01",
+      "context": "Application.serve: consuming more than one request already present in buffer",
+      "task": "Cold-reconstruct outer read loop plus inner framing loop",
+      "stage": "control-flow",
+      "intent_already_known": "The MP7 spec said one reader chunk may contain many HTTP messages.",
+      "observed_attempt": "Knew an inner loop was needed but was unsure where it begins, how it runs again, and where a completed request should be popped.",
+      "observed_failure": "The control-flow model was incomplete even though the multi-message requirement was already known.",
+      "missing_dimension": "After consuming request_bytes, buffer = buffer[request_end:] leaves the remainder and normal while True iteration automatically attempts the next message.",
+      "repair": "Place while True after buffer += chunk; consume one complete request; retain remainder; process it; allow the loop to naturally iterate again.",
+      "working_hypothesis": "The semantic requirement was available before the nested-loop execution trace was automatic enough to generate code directly.",
+      "recovery": {
+        "cue_level": "A3",
+        "cue": "After cutting request A, what exact bytes should remain in buffer, and where should while True be relative to buffer += chunk?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["control-flow", "nested-loops", "protocol-framing"],
+      "recurrence_key": "nested-loop-state-machine",
+      "evidence": ["test_several_message later confirmed the inner loop must consume GET, POST+body, and DELETE from one send."],
+      "review_status": "candidate-for-drill"
+    },
+    {
+      "collision_id": "C-20260901-004",
+      "date": "2026-09-01",
+      "context": "Application.serve: parsing raw HTTP bytes into Request fields",
+      "task": "Keep bytes/str representation boundaries consistent",
+      "stage": "representation-boundary",
+      "intent_already_known": "Request should expose method/path/headers as strings while preserving body as bytes.",
+      "observed_attempt": "Mixed string delimiters with bytes buffers and temporarily decoded values again after they were already strings.",
+      "observed_failure": "The desired final types were known, but conversion points were inconsistent during implementation.",
+      "missing_dimension": "Raw network parsing should remain bytes until a deliberate decode boundary; decoded header values should not be decoded again.",
+      "repair": "Use bytes delimiters while framing, decode request-line/header text once, and keep body_bytes unchanged.",
+      "working_hypothesis": "bytes/str direction is conceptually understood but remains a recurring local automaticity gap during code generation.",
+      "recovery": {
+        "cue_level": "A2",
+        "cue": "What are the exact expected types of method, path, headers, and body_bytes at Request construction?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["python-automaticity", "bytes-str-boundary", "representation-boundary"],
+      "recurrence_key": "bytes-str-boundary",
+      "evidence": ["The final Request invariant was reconstructed as method:str, path:str, headers:dict[str,str], body_bytes:bytes."],
+      "review_status": "candidate-for-drill"
+    },
+    {
+      "collision_id": "C-20260901-005",
+      "date": "2026-09-01",
+      "context": "Application.serve: parsing each HTTP header line",
+      "task": "Translate known 'name: value' grammar into Python string operations",
+      "stage": "api-syntax",
+      "intent_already_known": "Each header line contains a header name and header value separated by ': '.",
+      "observed_attempt": "Wrote header_name, header_value = info_header after decoding the header block.",
+      "observed_failure": "Python would iterate/unpack characters from the string rather than parse the two semantic fields.",
+      "missing_dimension": "The concrete Python operation expressing the known grammar: split(': ', 1).",
+      "repair": "header_name, header_value = info_header.decode('utf-8').split(': ', 1)",
+      "working_hypothesis": "This is a direct example of semantic intent being ahead of Python expression automaticity.",
+      "recovery": {
+        "cue_level": "A2",
+        "cue": "info_header is one string such as 'Host: localhost'; how do you split it into exactly two fields?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["python-api-automaticity", "string-parsing"],
+      "recurrence_key": "semantic-intent-to-python-idiom",
+      "evidence": ["The protocol grammar was already understood before the correct split expression was generated."],
+      "review_status": "watch"
+    },
+    {
+      "collision_id": "C-20260901-006",
+      "date": "2026-09-01",
+      "context": "Application.serve: optional Content-Length lookup",
+      "task": "Represent an optional mapping key without raising KeyError",
+      "stage": "api-syntax",
+      "intent_already_known": "Content-Length may be absent and should default to zero in the MP7 subset.",
+      "observed_attempt": "Used headers['Content-Length'] and then checked whether the value was None.",
+      "observed_failure": "Missing keys raise KeyError before a None check can happen.",
+      "missing_dimension": "Python's optional mapping-access idiom: dict.get(key[, default]).",
+      "repair": "content_length = int(headers.get('Content-Length', '0'))",
+      "working_hypothesis": "The optional-state semantics were already available; the Python dict idiom was not retrieved automatically.",
+      "recovery": {
+        "cue_level": "A2",
+        "cue": "This key may not exist; avoid direct indexing.",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["python-api-automaticity", "dict-access", "optional-state-expression"],
+      "recurrence_key": "optional-map-access",
+      "evidence": ["User explicitly asked how to avoid KeyError and immediately incorporated .get()."],
+      "review_status": "watch"
+    },
+    {
+      "collision_id": "C-20260901-007",
+      "date": "2026-09-01",
+      "context": "Application.serve: route lookup",
+      "task": "Map a known (method, path) tuple directly to its handler",
+      "stage": "data-structure-use",
+      "intent_already_known": "A matched route should call its handler; otherwise return 404.",
+      "observed_attempt": "Started iterating through every route key and then became unsure how to express the otherwise case outside the for loop.",
+      "observed_failure": "The code shape did not exploit the fact that the exact dictionary key was already known.",
+      "missing_dimension": "Choose the native operation implied by the data structure: exact dict lookup with .get(), not search-by-loop.",
+      "repair": "handler = self.routes_table.get((request.method, request.path)); branch on handler is None.",
+      "working_hypothesis": "Data-structure semantics are understood, but direct Python idioms are not yet consistently selected as the first implementation move.",
+      "recovery": {
+        "cue_level": "A3",
+        "cue": "You already possess the complete dict key; do you need to traverse the dictionary?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["python-automaticity", "data-structure-use", "dict-lookup"],
+      "recurrence_key": "semantic-intent-to-python-idiom",
+      "evidence": ["The initial for-loop approach was replaced by direct tuple-key lookup."],
+      "review_status": "watch"
+    },
+    {
+      "collision_id": "C-20260901-008",
+      "date": "2026-09-01",
+      "context": "Application.serve: response flushing and connection cleanup",
+      "task": "Place writer operations on the correct object and lifecycle scope",
+      "stage": "state-lifetime",
+      "intent_already_known": "Responses must be written and the connection eventually drained/closed.",
+      "observed_attempt": "Used reader.drain() and placed writer.close() inside the outer read loop.",
+      "observed_failure": "drain belongs to the writer/send side, and closing inside one read iteration would terminate a connection before a chopped request could receive later chunks.",
+      "missing_dimension": "I/O direction plus lifecycle scope: writer handles outbound backpressure; cleanup belongs after the connection read loop.",
+      "repair": "writer.write(bytes(response)) during request processing; await writer.drain() and writer.close() after both loops finish.",
+      "working_hypothesis": "API ownership and variable lifetime were each known locally but not jointly checked against the full connection lifecycle on first generation.",
+      "recovery": {
+        "cue_level": "A3",
+        "cue": "Which side sends bytes, and what would happen to chunk 2 if close() runs after chunk 1?",
+        "outcome": "immediate-after-cue",
+        "user_reconstructed": true
+      },
+      "classification": ["asyncio-io", "state-lifetime", "api-ownership"],
+      "recurrence_key": "state-lifetime-scope",
+      "evidence": ["The corrected implementation passed test_chopped_message and the full 28-test suite."],
+      "review_status": "candidate-for-drill"
+    },
+    {
+      "collision_id": "C-20260901-009",
+      "date": "2026-09-01",
+      "context": "test_several_message: tracing sendmsgs input versus res output",
+      "task": "Read test code as a data-flow specification",
+      "stage": "test-reading",
+      "intent_already_known": "sendmsgs transmits requests to the server and the test checks resulting behavior.",
+      "observed_attempt": "Momentarily treated res as the three request messages rather than the concatenated response bytes, making res.split(CRLFCRLF) difficult to interpret.",
+      "observed_failure": "The local variable data flow was not traced before reasoning about the split/assert loop.",
+      "missing_dimension": "Track values by direction first: sendmsgs inputs are request bytes; its return value res is received response bytes.",
+      "repair": "Expand the test into named intermediate values: responses = res.split(...); reconstruct each zero-body response delimiter; assert each against expected 404.",
+      "working_hypothesis": "Dense test code becomes easier once value provenance and direction are made explicit before decoding compact expressions.",
+      "recovery": {
+        "cue_level": "A3",
+        "cue": "Separate sendmsgs(...) arguments from its return value and trace what crosses client -> server and server -> client.",
+        "outcome": "after-explanation",
+        "user_reconstructed": true
+      },
+      "classification": ["test-reading", "data-flow-tracing", "compact-code-decoding"],
+      "recurrence_key": "trace-value-provenance-first",
+      "evidence": ["After expansion, the split/add-delimiter loop became understandable and its zero-body shortcut was recognized."],
+      "review_status": "observe"
+    },
+    {
+      "collision_id": "C-20260901-010",
+      "date": "2026-09-01",
+      "context": "apprunner(): understanding why a generator is useful rather than only how yield/next syntax works",
+      "task": "Transfer generator mechanics into lifecycle orchestration",
+      "stage": "conceptual-model",
+      "intent_already_known": "yield pauses a generator and next() resumes it; generator syntax and iteration mechanics were already familiar.",
+      "observed_attempt": "The syntax was understood without a concrete model for why this mechanism is useful in a real program.",
+      "observed_failure": "Knowledge remained at mechanism/syntax level and had not generalized to staged setup -> caller intervention -> resume -> cleanup control flow.",
+      "missing_dimension": "A generator can create externally controlled suspension points while preserving locals and execution position across phases.",
+      "repair": "Model apprunner as ping-pong control transfer: yield app for pre-start configuration, resume to start child process, yield port for testing, resume again for cleanup.",
+      "working_hypothesis": "Concrete source examples are effective for converting remembered language features into reusable execution models.",
+      "recovery": {
+        "cue_level": "A3",
+        "cue": "Put test code and apprunner side-by-side and trace next(g) -> yield value -> caller work -> next(g) as a ping-pong timeline.",
+        "outcome": "after-explanation",
+        "user_reconstructed": true
+      },
+      "classification": ["generator", "control-transfer", "conceptual-transfer", "lifecycle-orchestration"],
+      "recurrence_key": "syntax-known-usecase-not-internalized",
+      "evidence": ["User subsequently reconstructed why yield app must precede mp.start() and traced app/port handoff correctly."],
+      "review_status": "observe"
+    }
+  ],
+  "pattern_summary": [
+    {
+      "recurrence_key": "semantic-intent-to-python-idiom",
+      "collision_ids": ["C-20260901-005", "C-20260901-007"],
+      "observation": "In multiple places the intended behavior was already clear, but the compact Python operation was not the first generated implementation.",
+      "working_hypothesis": "Local Python idiom automaticity is lagging behind system/semantic reasoning.",
+      "status": "candidate-for-drill"
+    },
+    {
+      "recurrence_key": "state-lifetime-scope",
+      "collision_ids": ["C-20260901-002", "C-20260901-008"],
+      "observation": "State and cleanup were initially placed at the wrong loop/lifecycle scope despite the broader protocol goal being understood.",
+      "working_hypothesis": "A deliberate 'what lifetime does this variable/resource need?' check may transfer beyond HTTP to queues, transactions, connections, and workers.",
+      "status": "candidate-for-drill"
+    },
+    {
+      "recurrence_key": "bytes-str-boundary",
+      "collision_ids": ["C-20260901-004"],
+      "observation": "bytes/str conversion points still required local correction during cold reconstruction and have appeared in recent MP7 work before this day.",
+      "working_hypothesis": "The model is understood but not yet automatic under implementation pressure.",
+      "status": "candidate-for-drill"
+    },
+    {
+      "recurrence_key": "nested-loop-state-machine",
+      "collision_ids": ["C-20260901-003"],
+      "observation": "The multi-message requirement was known before its nested-loop execution trace could be generated cleanly.",
+      "working_hypothesis": "Short cross-context state-machine traces may improve translation from requirement to control flow.",
+      "status": "watch"
+    },
+    {
+      "recurrence_key": "syntax-known-usecase-not-internalized",
+      "collision_ids": ["C-20260901-010"],
+      "observation": "Generator syntax was known but its usefulness became clear only when attached to a concrete lifecycle problem.",
+      "working_hypothesis": "This is better handled by source-guided transfer examples than by syntax drills.",
+      "status": "observe"
+    }
+  ],
+  "systematic_review_candidates": [
+    {
+      "target": "Python expression automaticity: dict lookup, string split, bytes/str conversion boundaries",
+      "reason": "Several collisions had the pattern 'I know what the code must mean, but I do not retrieve the Python expression immediately.'",
+      "status": "candidate-for-drill"
+    },
+    {
+      "target": "State lifetime and scope",
+      "reason": "buffer initialization and connection cleanup both failed first at the lifecycle/scope dimension; this pattern has high transfer value beyond HTTP.",
+      "status": "candidate-for-drill"
+    },
+    {
+      "target": "Nested control-flow traces",
+      "reason": "The outer-read/inner-consume structure was semantically understood before its execution sequence became easy to generate.",
+      "status": "watch"
+    },
+    {
+      "target": "Generator syntax",
+      "reason": "The gap was not syntax recall; it was use-case/internal model. Repeated syntax exercises would likely target the wrong layer.",
+      "status": "defer"
+    }
+  ],
+  "notes": [
+    "Observed facts and working hypotheses are stored separately; the file does not claim certainty about why a collision occurred.",
+    "A collision being a drill candidate does not automatically create a training program. Promotion should depend on recurrence and transfer value.",
+    "TrainingState remains reserved for physical fitness/training data; learning diagnostics stay under LearningDiagnostics."
+  ]
+}
