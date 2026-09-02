@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.1",
+  "date": "2026-09-01",
+  "record_kind": "training_calibration_checkpoint",
+  "source": {
+    "kind": "current_conversation",
+    "note": "First training calibration checkpoint reconstructed from the user's 2026-09-01 movement session. Exact clock times were not supplied, so only within-session order is preserved."
+  },
+  "session_summary": "Restarted physical training as a calibration session focused on hip mobility, pelvic positioning, core control, and rebuilding body awareness rather than workout volume.",
+  "context": [
+    "Long-term sitting and a tendency for quads/calves to dominate exercise were part of the training context.",
+    "The intended progression order was hip release -> core stability -> glute activation -> whole-body strength -> run/walk cardio -> foot-arch stability.",
+    "The session prioritized low-load, low-risk movement learning over intensity."
+  ],
+  "observations": [
+    {
+      "order": 1,
+      "time_context": null,
+      "category": "mobility",
+      "movement": "half-kneeling hip flexor stretch",
+      "observed": "With a yoga block under the right knee, the user reported a very clear stretch in the upper thigh/groin area on the kneeling side.",
+      "response": "Padding improved comfort/stability and made the target stretch easier to perceive.",
+      "user_wording": "上大腿/腹股沟位置的拉伸感很清楚"
+    },
+    {
+      "order": 2,
+      "time_context": null,
+      "category": "motor_control",
+      "movement": "pelvic tilt / posterior tilt concept",
+      "observed": "The user learned the small pelvis-as-a-bowl motion: anterior tilt increases lumbar arch; posterior tilt gently brings the pelvis under without permanently holding that position.",
+      "response": "Pelvic positioning became a distinct movement concept rather than an abstract cue.",
+      "user_wording": null
+    },
+    {
+      "order": 3,
+      "time_context": null,
+      "category": "core_control",
+      "movement": "dead bug regression",
+      "observed": "During early dead-bug attempts, arm joints popped and the user could barely feel the core; the movement initially felt like arms and legs moving rather than trunk stabilization.",
+      "response": "The drill was regressed to brace breathing, hand-vs-thigh isometrics, and small-range heel taps.",
+      "user_wording": "核心几乎感觉不到，像只是胳膊腿在动"
+    },
+    {
+      "order": 4,
+      "time_context": null,
+      "category": "compensation",
+      "movement": "small-range heel tap dead bug",
+      "observed": "The low back could remain stable during the heel-tap regression, but the shoulders and upper trapezius became noticeably active and fatigued.",
+      "response": "Hands were moved to the lower ribs/abdomen, shoulder pressure into the floor was removed, and leg-lowering range was reduced.",
+      "user_wording": "腰能稳住，但是肩膀/上斜方肌很明显在工作"
+    },
+    {
+      "order": 5,
+      "time_context": null,
+      "category": "proprioception",
+      "movement": null,
+      "observed": "The user began distinguishing target-muscle effort from compensation and noticing which body region became fatigued first.",
+      "response": "Body-awareness itself became an explicit training target.",
+      "user_wording": null
+    }
+  ],
+  "capability_updates": [
+    {
+      "capability": "hip_flexor_stretch_positioning",
+      "stage": "learning",
+      "evidence": [
+        "Clear target stretch was perceived in the kneeling-side upper thigh/groin.",
+        "A small pelvic repositioning cue changed where the stretch was felt."
+      ],
+      "tolerated": [
+        "Supported half-kneeling position with knee padding",
+        "Small forward pelvic translation"
+      ],
+      "provokes": [],
+      "useful_cues": [
+        "Ribs gently down",
+        "Tailbone subtly down / slight posterior pelvic tilt",
+        "Lightly squeeze the kneeling-side glute",
+        "Move the pelvis forward only a few centimeters"
+      ],
+      "current_need": [
+        "Build repeatable hip-flexor stretch positioning before adding rotational refinements"
+      ],
+      "progression_gate": [
+        "Target stretch remains clear without lumbar pinching or compensation"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "capability": "pelvic_position_awareness",
+      "stage": "learning",
+      "evidence": [
+        "Anterior vs posterior tilt was understood through the pelvis-as-a-bowl cue."
+      ],
+      "tolerated": [
+        "Small-range pelvic repositioning"
+      ],
+      "provokes": [],
+      "useful_cues": [
+        "Use a very small movement; do not force or permanently hold posterior tilt"
+      ],
+      "current_need": [
+        "Convert conceptual understanding into clearer embodied perception"
+      ],
+      "progression_gate": [
+        "Can deliberately move pelvis anterior/posterior without using the low back aggressively"
+      ],
+      "confidence": "moderate"
+    },
+    {
+      "capability": "dead_bug_trunk_stability",
+      "stage": "rebuilding",
+      "evidence": [
+        "Low back could stay stable during a small heel tap.",
+        "Core activation was difficult to perceive while shoulders/upper traps compensated."
+      ],
+      "tolerated": [
+        "Small-range heel taps",
+        "Low-intensity hand-vs-thigh isometrics"
+      ],
+      "provokes": [
+        "Larger or more effortful versions increase shoulder/upper-trapezius participation"
+      ],
+      "useful_cues": [
+        "Hands on lower ribs/abdomen instead of pressing into the floor",
+        "Shoulders heavy and away from ears",
+        "Use a smaller leg-lowering range",
+        "Do not force the low back flat"
+      ],
+      "current_need": [
+        "Improve core sensation",
+        "Reduce shoulder compensation",
+        "Keep the movement small enough that trunk position remains stable"
+      ],
+      "progression_gate": [
+        "Heel tap remains stable with relaxed shoulders and neck",
+        "Core stabilization becomes easier to perceive"
+      ],
+      "confidence": "high"
+    },
+    {
+      "capability": "body_awareness_proprioception",
+      "stage": "learning",
+      "evidence": [
+        "The user began identifying when a non-target region was the first to fatigue.",
+        "The user could distinguish stretch location and compensation more precisely than at the start of the session."
+      ],
+      "tolerated": [
+        "Low-load calibration drills"
+      ],
+      "provokes": [],
+      "useful_cues": [
+        "If exercise is meant to train A but B is first exhausted, suspect compensation before adding reps"
+      ],
+      "current_need": [
+        "Continue building a body map before increasing training intensity"
+      ],
+      "progression_gate": [
+        "Can reliably distinguish target effort, compensation, stretch, and discomfort across several basic movements"
+      ],
+      "confidence": "moderate"
+    }
+  ],
+  "interpretation": [
+    "The main state change was not workout volume but the beginning of a movement-control and proprioception rebuild.",
+    "Shoulders/upper traps currently tend to assist tasks that should be handled more by trunk control.",
+    "Conceptual understanding of pelvic positioning appeared ahead of fully automatic motor control."
+  ],
+  "safety_notes": [
+    "Avoid aggressive jumping/HIIT during the initial rebuild phase.",
+    "Pain, sharp pinching, radiating symptoms, numbness/tingling, or weakness should not be treated as ordinary progression signals."
+  ],
+  "next_exposure": [
+    "Repeat supported hip-flexor positioning at low intensity.",
+    "Continue small pelvic-control drills.",
+    "Use dead-bug regressions that keep shoulders relaxed before progressing range."
+  ]
+}
