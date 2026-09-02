@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-01",
+  "as_of": "2026-09-02",
   "timezone": "Asia/Shanghai",
   "items": [
     {
@@ -11,17 +11,17 @@
     },
     {
       "name": "eggs",
-      "quantity": 2,
+      "quantity": 0,
       "unit": "count",
-      "priority": "normal",
-      "notes": "User plans to buy 30 more tomorrow."
+      "priority": "restock_planned",
+      "notes": "Two remaining eggs were eaten at breakfast on 2026-09-02. User had planned to buy 30 more eggs on 2026-09-02, but purchase has not yet been confirmed."
     },
     {
       "name": "mangoes",
-      "quantity": 2,
+      "quantity": 1,
       "unit": "count",
       "priority": "eat_soon",
-      "notes": "One mango is already wrinkled; prioritize using soon."
+      "notes": "One mango was eaten at breakfast on 2026-09-02. One remains."
     },
     {
       "name": "white radish",
@@ -56,7 +56,7 @@
       "quantity": 5,
       "unit": "kg",
       "priority": "frozen_bulk",
-      "notes": "Quantity confirmed by user as 5 kg. Arrival confirmed by user photo on 2026-09-01; shown as large frozen vacuum-packed pieces. Visible package label states storage at -18°C."
+      "notes": "Quantity confirmed by user as 5 kg. Arrival confirmed by user photo on 2026-09-01; shown as large frozen vacuum-packed pieces. Visible package label states storage at -18°C. User plans to process a carefully weighed single-dinner portion on 2026-09-02 and wants to avoid creating next-day leftovers."
     },
     {
       "name": "onions",
@@ -75,9 +75,9 @@
     {
       "name": "Yulin-style jinbing (筋饼)",
       "quantity": 1,
-      "unit": "package",
-      "priority": "room_temp_ok_if_unopened",
-      "notes": "Visible package label states room-temperature storage away from light or frozen storage; shelf life 21 days at room temperature and 12 months frozen. User is considering eating it for breakfast on 2026-09-02."
+      "unit": "opened_package",
+      "priority": "opened_store_cold",
+      "notes": "Package was opened on 2026-09-02; user ate 3 jinbing at breakfast. Exact number remaining is unknown. Store remaining pieces refrigerated for near-term use or frozen for longer storage."
     },
     {
       "name": "instant oats",
@@ -99,13 +99,8 @@
   "meal_intentions": [
     {
       "date": "2026-09-02",
-      "meal": "breakfast",
-      "plan": "Possible breakfast: heat jinbing and pair with egg; prioritize the wrinkled mango as fruit."
-    },
-    {
-      "date": "2026-09-02",
       "meal": "dinner",
-      "plan": "Stew beef short ribs with a seasoning packet and one onion; add one ear of corn to the stew; drink some broth with cilantro; steam one potato separately as the main starch rather than putting potato into the stew."
+      "plan": "Stew a carefully weighed single-dinner portion of beef short ribs with a seasoning packet and onion; add one ear of corn if desired; use the broth to cook some noodles for dinner. User wants to avoid intentionally making enough cooked beef for the next day."
     },
     {
       "date": "future_second_beef_rib_meal",
