@@ -1,0 +1,214 @@
+{
+  "schema_version": "0.1",
+  "date": "2026-09-02",
+  "record_kind": "training_calibration_checkpoint",
+  "source": {
+    "kind": "current_conversation",
+    "note": "Checkpoint reconstructed from daytime body-state observations and the late-evening exploratory movement session. Exact clock times are omitted except for broad time context because the user did not provide precise exercise timestamps."
+  },
+  "session_summary": "Continued low-load calibration. The session clarified lumbar/pelvic movement tolerance, improved pelvic proprioception, and identified right upper-back/neck loading as a region that currently worsens with active scapular work.",
+  "context": [
+    "The user reported being sleepy/tired but still able to do exploratory, low-intensity training.",
+    "Earlier in the day, both scapular regions had felt sore; later the right side was more noticeable.",
+    "Changing chairs made the back/shoulder-blade region feel substantially better, suggesting environmental sitting load is relevant context.",
+    "Earlier in the day, a strong stretch/yawn-like movement briefly produced a moment of dizziness that resolved immediately after lying down; this was treated as safety context rather than a training target."
+  ],
+  "observations": [
+    {
+      "order": 1,
+      "time_context": "daytime",
+      "category": "environmental_load",
+      "movement": null,
+      "observed": "Back and shoulder-blade discomfort improved noticeably after changing chairs.",
+      "response": "The chair change was treated as a useful A/B-style observation rather than proof of a diagnosis.",
+      "user_wording": "换了椅子以后背舒服很多"
+    },
+    {
+      "order": 2,
+      "time_context": "late_evening",
+      "category": "breathing_positioning",
+      "movement": "chair-supported 90/90 breathing",
+      "observed": "At baseline in the position, the low back had little or no pain sensation and mainly felt stiff/low-awareness. During a long exhale, the user could feel the ribs descend and the low back move downward; this produced a sour central lumbar ache. With a longer exhale, a very intense sour ache also appeared at a central mid-back point.",
+      "response": "The lumbar and mid-back ache disappeared almost immediately after returning to normal breathing / neutral positioning.",
+      "user_wording": "肋骨在往下，腰也在往下；腰正中酸不拉几的。气呼很长时背中段正中某一点特别特别酸。"
+    },
+    {
+      "order": 3,
+      "time_context": "late_evening",
+      "category": "motor_control",
+      "movement": "supine pelvic anterior/posterior tilt",
+      "observed": "Anterior tilt was tolerated, neutral was acceptable, and posterior tilt quickly produced strong central lumbar soreness.",
+      "response": "The user gained a clear embodied sense of the pelvis moving anteriorly and posteriorly: the pelvis felt as if it lifted and then was laid flat by the floor.",
+      "user_wording": "一后倾这个腰酸的嘞；骨盆抬起来，然后被地面放平。"
+    },
+    {
+      "order": 4,
+      "time_context": "late_evening",
+      "category": "mobility_proprioception",
+      "movement": "small supine knee drops / pelvic rotation",
+      "observed": "Small left-right knee drops of roughly 10 degrees felt comparatively good. The user could feel the tailbone/pelvis rotating and understood that the small range was intended to limit large lumbar motion while allowing pelvic movement.",
+      "response": "Gentle rotational exposure was better tolerated than posterior pelvic tilt / flexion-biased exposure.",
+      "user_wording": "动作二感觉还不错；尾椎骨在转。"
+    },
+    {
+      "order": 5,
+      "time_context": "late_evening",
+      "category": "proprioception",
+      "movement": null,
+      "observed": "The user became much more certain that the lumbar region currently feels stiff and not very mobile, while also becoming able to distinguish pelvic motion from lumbar motion.",
+      "response": "The user explicitly recognized the difference between 'where it hurts, train it hard' and using pain as a reason to avoid provoking that direction during the current session.",
+      "user_wording": "我越来越清楚知道它一点也不灵活；哪里疼我下意识就要狠狠练那里，但你却是哪里疼今天就暂时不要太碰。"
+    },
+    {
+      "order": 6,
+      "time_context": "late_evening",
+      "category": "upper_body_tolerance",
+      "movement": "wall scapular glide / gentle wall push",
+      "observed": "The right upper-back / scapular-region soreness became clearly worse during the gentle wall-push scapular glide.",
+      "response": "The movement was stopped rather than repeated or progressed.",
+      "user_wording": "oh! 真的更酸"
+    },
+    {
+      "order": 7,
+      "time_context": "late_evening",
+      "category": "upper_body_tolerance",
+      "movement": "post-wall-glide rest",
+      "observed": "After the provoking scapular movement, discomfort was also noticeable around the right posterior neck / bony area near the base-back of the neck.",
+      "response": "Upper-body exploratory training was ended for the night.",
+      "user_wording": "右边脖子后面那块骨头也不得劲"
+    }
+  ],
+  "capability_updates": [
+    {
+      "capability": "pelvic_position_awareness",
+      "stage": "rebuilding",
+      "evidence": [
+        "Anterior/posterior pelvic tilt became clearly perceptible as pelvis movement rather than an abstract cue.",
+        "The user could feel tailbone/pelvic rotation during small left-right knee drops."
+      ],
+      "tolerated": [
+        "Anterior tilt",
+        "Neutral",
+        "Small-range left-right pelvic rotation / knee drops"
+      ],
+      "provokes": [
+        "Posterior pelvic tilt produces central lumbar soreness at small range"
+      ],
+      "useful_cues": [
+        "Use small movement ranges",
+        "Differentiate pelvic motion from large lumbar motion"
+      ],
+      "current_need": [
+        "Continue building deliberate pelvic control without forcing painful posterior tilt"
+      ],
+      "progression_gate": [
+        "Posterior-tilt exposure can be performed in a small range without quickly provoking central lumbar ache"
+      ],
+      "confidence": "high"
+    },
+    {
+      "capability": "lumbar_movement_tolerance",
+      "stage": "rebuilding",
+      "evidence": [
+        "Baseline supine position was largely symptom-free or only stiff/low-awareness.",
+        "Long exhalation that brought ribs and low back downward provoked central lumbar ache.",
+        "Longer exhalation also provoked a central mid-back sour ache.",
+        "Symptoms resolved almost immediately on return to normal breathing / neutral.",
+        "Gentle rotational movement was better tolerated."
+      ],
+      "tolerated": [
+        "Neutral supine position",
+        "Anterior tilt",
+        "Small rotational exposure"
+      ],
+      "provokes": [
+        "Forced/long exhalation with increasing rib and lumbar descent",
+        "Posterior pelvic tilt"
+      ],
+      "useful_cues": [
+        "Do not force the low back flat",
+        "Use comfortable small-range exposure rather than end-range stretching",
+        "Stop before the strong central sour ache appears"
+      ],
+      "current_need": [
+        "Rebuild comfortable movement variability",
+        "Expand motion gradually rather than using aggressive stretching"
+      ],
+      "progression_gate": [
+        "Small flexion/posterior-tilt exposure becomes comfortable and repeatable",
+        "No persistent symptoms after the movement"
+      ],
+      "confidence": "high"
+    },
+    {
+      "capability": "scapular_upper_quarter_load_tolerance",
+      "stage": "rebuilding",
+      "evidence": [
+        "Bilateral scapular-region soreness was present during the day, later more noticeable on the right.",
+        "Gentle wall scapular glide clearly increased right upper-back/scapular soreness.",
+        "Discomfort subsequently included the right posterior neck area."
+      ],
+      "tolerated": [
+        "Rest / unloaded positioning"
+      ],
+      "provokes": [
+        "Active wall-push scapular protraction/glide during this session"
+      ],
+      "useful_cues": [
+        "Do not chase the painful region with more reps when the movement clearly worsens symptoms",
+        "Prefer rest or lower-load re-entry on a later day"
+      ],
+      "current_need": [
+        "Allow the currently irritated/fatigued upper-quarter region to settle",
+        "Reassess load tolerance on a later day rather than provoking it repeatedly"
+      ],
+      "progression_gate": [
+        "Scapular movement can be performed without increasing right upper-back or posterior-neck discomfort"
+      ],
+      "confidence": "high"
+    },
+    {
+      "capability": "body_awareness_proprioception",
+      "stage": "rebuilding",
+      "evidence": [
+        "The user could clearly feel pelvic anterior/posterior movement.",
+        "The user could distinguish pelvic rotation from large lumbar motion.",
+        "The user detected movement-specific symptom changes and immediate symptom resolution at neutral.",
+        "The user recognized that pain is not an automatic instruction to train that region harder."
+      ],
+      "tolerated": [
+        "Low-load calibration drills with immediate feedback"
+      ],
+      "provokes": [],
+      "useful_cues": [
+        "Treat movement response as telemetry",
+        "Use symptom increase as a reason to regress/stop, not as proof that more load is needed"
+      ],
+      "current_need": [
+        "Continue mapping comfortable movement directions and compensation patterns"
+      ],
+      "progression_gate": [
+        "Can repeatedly identify target motion, compensation, and tolerance across basic movements"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "interpretation": [
+    "Compared with 2026-09-01, pelvic proprioception became substantially clearer within a very small amount of practice.",
+    "Current lumbar movement tolerance appears direction-dependent: neutral/anterior tilt/small rotation are better tolerated than posterior tilt or strongly prolonged exhalation that drives the trunk toward flexion/flattening.",
+    "The right upper-back/neck region appears temporarily load-sensitive; active scapular work worsened rather than relieved the symptom during this session.",
+    "Environmental sitting setup may materially influence upper-back discomfort because changing chairs improved symptoms, but this remains an observation/inference rather than a diagnosis.",
+    "The dominant training need remains movement options + proprioception + motor control before intensity or volume."
+  ],
+  "safety_notes": [
+    "Do not use prolonged forced exhalation, breath holding, or aggressive stretch as a progression target tonight, especially given the earlier brief dizziness episode.",
+    "Stop/regress movements that clearly increase pain rather than repeatedly testing them.",
+    "Persistent or worsening pain, true numbness/tingling, radiating arm/leg symptoms, marked weakness, repeated presyncope/fainting, chest pain, breathing difficulty, or neurologic symptoms should be treated outside ordinary training progression."
+  ],
+  "next_exposure": [
+    "Keep small, comfortable pelvic rotation as a low-risk mobility option.",
+    "Revisit posterior pelvic tilt only at a smaller range and only if it does not immediately provoke the central lumbar ache.",
+    "Do not re-test active right scapular loading until the right upper-back/neck region is calmer.",
+    "Continue using environment changes (chair/setup) as training-relevant context rather than assuming every ache requires strengthening or stretching."
+  ]
+}
