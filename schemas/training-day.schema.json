@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "training-day.schema.json",
+  "title": "Training Day Checkpoint",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "date",
+    "record_kind",
+    "source",
+    "session_summary",
+    "observations",
+    "capability_updates"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "record_kind": { "const": "training_calibration_checkpoint" },
+    "source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "session_summary": { "type": "string" },
+    "context": { "type": "array", "items": { "type": "string" } },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order", "category", "observed"],
+        "properties": {
+          "order": { "type": "integer", "minimum": 1 },
+          "time_context": { "type": ["string", "null"] },
+          "category": { "type": "string" },
+          "movement": { "type": ["string", "null"] },
+          "observed": { "type": "string" },
+          "response": { "type": ["string", "null"] },
+          "user_wording": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "capability_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["capability", "stage", "evidence"],
+        "properties": {
+          "capability": { "type": "string" },
+          "stage": {
+            "enum": [
+              "not_introduced",
+              "learning",
+              "rebuilding",
+              "stable",
+              "ready_to_progress"
+            ]
+          },
+          "evidence": { "type": "array", "items": { "type": "string" } },
+          "tolerated": { "type": "array", "items": { "type": "string" } },
+          "provokes": { "type": "array", "items": { "type": "string" } },
+          "useful_cues": { "type": "array", "items": { "type": "string" } },
+          "current_need": { "type": "array", "items": { "type": "string" } },
+          "progression_gate": { "type": "array", "items": { "type": "string" } },
+          "confidence": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "interpretation": { "type": "array", "items": { "type": "string" } },
+    "safety_notes": { "type": "array", "items": { "type": "string" } },
+    "next_exposure": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
