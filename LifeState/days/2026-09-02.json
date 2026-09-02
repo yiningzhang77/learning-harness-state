@@ -27,17 +27,17 @@
     {
       "time": "midday",
       "meal": "lunch",
-      "status": "in_progress",
+      "status": "stopped_when_full",
       "items": [
         "corn on the cob",
         "instant noodles"
       ],
       "amounts": [
         "1 normal-sized individually packaged ear, ends trimmed",
-        "about 1/2 of 1 package eaten so far"
+        "about 1/2 of 1 package eaten; remainder not eaten at this point"
       ],
       "meal_duration_minutes": null,
-      "notes": "User finished one normal-sized individually packaged ear of corn. While eating one package of instant noodles, user became noticeably sleepy after about half the noodles and had not yet confirmed whether the rest would be eaten."
+      "notes": "User finished one normal-sized individually packaged ear of corn, then ate about half a package of instant noodles. They became noticeably sleepy while eating and then recognized that they felt genuinely full. User jokingly described the sensation as being 'carb-dizzy' and even feeling overwhelmed by looking at the remaining bowl of starch. The remaining noodles felt tempting mainly because they were already prepared and present, while the user had recently encountered a 'do not eat the extra bite' idea online."
     }
   ],
   "exercise": [],
@@ -45,7 +45,7 @@
     "weight_kg": null,
     "waist_cm": null,
     "energy": "Became noticeably sleepy during lunch after finishing one ear of corn and eating about half a package of instant noodles.",
-    "hunger": null,
+    "hunger": "At lunch, user recognized genuine fullness before the prepared instant-noodle portion was finished.",
     "soreness_or_pain": null,
     "posture_or_movement_observations": null
   },
@@ -63,24 +63,25 @@
       "The mango produced a strong positive food response, continuing the emerging pattern that fruit can make meals feel especially satisfying.",
       "The user is explicitly shifting away from rigid inherited eating rules and toward direct observation of appetite, comfort, and enjoyment.",
       "When the beef was not ready to portion safely, the user switched to a simpler meal instead of forcing the original plan.",
-      "At lunch, sleepiness appeared before the instant-noodle portion was finished, after one whole ear of corn plus about half a package of noodles."
+      "At lunch, sleepiness appeared before the instant-noodle portion was finished, after one whole ear of corn plus about half a package of noodles.",
+      "The user then identified a genuine stop signal: fullness was present even though prepared food remained in the bowl."
     ],
     "uncertainties": [
       "The exact number and timing of the brief phone checks within 10:00-11:00 are not available from the screenshot.",
       "It is not yet known whether fragmented micro-checks measurably reduced coding quality or were largely harmless.",
       "Today's sleep duration has not been reported, so the lunch sleepiness cannot yet be attributed to the meal, sleep debt, circadian timing, or another factor.",
-      "It is not yet confirmed whether the rest of the instant noodles were eaten.",
+      "It is not yet known whether the remaining noodles will later be eaten, refrigerated, or discarded.",
       "The remaining number of jinbing in the opened package is not yet known."
     ],
     "exploratory_questions": [
       "Does the lunch sleepiness feel like ordinary heavy-eyelid drowsiness, or is there dizziness, nausea, weakness, sweating, or another unusual sensation?",
-      "Does similar sleepiness recur after other lunches, especially when a meal is mostly starch, or was this specific to today?",
-      "Do brief 2-3 minute phone checks remain self-terminating across the day, or do they become longer after meals or interruptions?"
+      "When food remains after fullness appears, is the pull to continue mostly taste, waste-aversion, habit, or simply the visual presence of the food?",
+      "Does similar sleepiness recur after other lunches, especially when a meal is mostly starch, or was this specific to today?"
     ],
     "next_observations": [
-      "Do not force the remaining noodles just because they were prepared; notice whether appetite is still present once the sleepiness settles.",
-      "If the sleepiness is ordinary drowsiness, observe how long it lasts and whether a short period of light movement or rest changes it.",
-      "Confirm later whether the rest of the noodles were eaten."
+      "Treat fullness as permission to stop rather than as a rule that requires leaving food behind.",
+      "Notice what specifically makes the remaining prepared food tempting even after fullness appears.",
+      "If the sleepiness is ordinary drowsiness, observe how long it lasts and whether a short period of light movement or rest changes it."
     ]
   }
 }
