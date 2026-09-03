@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-02",
+  "as_of": "2026-09-03",
   "timezone": "Asia/Shanghai",
   "items": [
     {
       "name": "Greek yogurt",
-      "quantity": 600,
+      "quantity": 500,
       "unit": "g",
       "priority": "normal",
-      "notes": "Current amount reported by user."
+      "notes": "100 g eaten at breakfast on 2026-09-03."
     },
     {
       "name": "eggs",
@@ -39,10 +39,10 @@
     },
     {
       "name": "dragon fruit",
-      "quantity": 2,
-      "unit": "count",
+      "quantity": null,
+      "unit": "partially_tracked",
       "priority": "normal",
-      "notes": "Current amount reported by user."
+      "notes": "Inventory previously contained 2 whole dragon fruits. User ate more than half of one at breakfast on 2026-09-03. At least 1 whole fruit plus a partial fruit remains, but exact fraction is unknown."
     },
     {
       "name": "apples",
@@ -55,8 +55,8 @@
       "name": "beef short ribs",
       "quantity": 5,
       "unit": "kg",
-      "priority": "frozen_bulk",
-      "notes": "Quantity confirmed by user as 5 kg. Arrival confirmed by user photo on 2026-09-01; shown as large frozen vacuum-packed pieces. Visible package label states storage at -18°C. User plans to process a carefully weighed single-dinner portion on 2026-09-02 and wants to avoid creating next-day leftovers."
+      "priority": "refrigerator_partial_thaw",
+      "notes": "Bulk boneless beef was moved from freezer to refrigerator around midday on 2026-09-02. By early afternoon 2026-09-03, the exterior had softened while the center remained frozen hard. No beef has yet been portioned or consumed. User plans to portion and refreeze once the meat is firm but safely cuttable, before being away over the weekend if possible."
     },
     {
       "name": "onions",
@@ -70,7 +70,7 @@
       "quantity": null,
       "unit": "count_untracked",
       "priority": "normal",
-      "notes": "User reports having several ears, including frozen and vacuum-sealed corn. Exact count is not yet recorded."
+      "notes": "User reports having several ears, including frozen and vacuum-sealed corn. Exact count is not yet recorded. One normal-sized ear was eaten on 2026-09-02."
     },
     {
       "name": "Yulin-style jinbing (筋饼)",
@@ -98,9 +98,9 @@
   ],
   "meal_intentions": [
     {
-      "date": "2026-09-02",
-      "meal": "dinner",
-      "plan": "Stew a carefully weighed single-dinner portion of beef short ribs with a seasoning packet and onion; add one ear of corn if desired; use the broth to cook some noodles for dinner. User wants to avoid intentionally making enough cooked beef for the next day."
+      "date": "future_beef_meal",
+      "meal": "unspecified",
+      "plan": "Use one calibrated daily portion of the bulk boneless beef, likely around 400-500 g raw for two meals, then adjust after the first real batch based on appetite and leftovers."
     },
     {
       "date": "future_second_beef_rib_meal",
