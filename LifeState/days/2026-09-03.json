@@ -42,15 +42,19 @@
     {
       "time": "late afternoon / early evening",
       "meal": "dinner",
-      "status": "eaten",
+      "status": "in_progress",
       "items": [
-        "shrimp paste with egg"
+        "shrimp paste with egg",
+        "steamed potato",
+        "ketchup"
       ],
       "amounts": [
-        "egg quantity not reported; shrimp-paste amount not reported"
+        "egg quantity not reported; shrimp-paste amount not reported",
+        "1 potato",
+        "amount not reported"
       ],
       "meal_duration_minutes": null,
-      "notes": "User made the suggested shrimp-paste-and-egg preparation and reported it was extremely delicious. A steamed potato had been planned, but user did not explicitly confirm whether it was eaten, so it is not recorded as consumed."
+      "notes": "User made the suggested shrimp-paste-and-egg preparation and reported it was extremely delicious. User also ate one steamed potato with ketchup, said this combination is very tasty, and found the single potato surprisingly substantial/filling and somewhat dry enough to feel hard to get through comfortably."
     }
   ],
   "exercise": [],
@@ -72,6 +76,7 @@
       "Breakfast combined dairy, sesame paste, oats, fruit, and leftover noodles and was followed by unusually prolonged satiety lasting more than seven hours by the late afternoon.",
       "The user did not report clear hunger before feeling mild dizziness after an outing, suggesting that hunger intensity and immediate energy needs may not be tightly coupled in this single episode.",
       "A very low-friction dinner made from thawed shrimp paste and eggs produced a very strong positive taste response.",
+      "Steamed potato with ketchup also produced a strong positive taste response, but one whole potato felt much more substantial than expected.",
       "The large bulk beef continues to thaw gradually from the outside inward under refrigeration."
     ],
     "uncertainties": [
@@ -79,16 +84,17 @@
       "Exact remaining quantity of dragon fruit is not known.",
       "The dizziness cannot be attributed to hypoglycemia without a glucose measurement; dehydration, prolonged time since eating, exertion, orthostatic effects, or other causes remain possible.",
       "Exact egg and shrimp-paste quantities used for dinner were not reported.",
-      "It is not yet confirmed whether the planned steamed potato was eaten."
+      "It is not yet known whether the earlier dizziness fully resolved after watermelon and dinner."
     ],
     "exploratory_questions": [
       "Does the user want shrimp-paste-and-egg to become a repeatable low-friction default meal?",
+      "Would a smaller potato or half a large potato preserve the enjoyment of potato with ketchup without the meal feeling overly bulky?",
       "Does clear hunger appear later, or does the user continue to have weak hunger signals even when energy symptoms appear?"
     ],
     "next_observations": [
       "Notice whether the earlier dizziness fully resolves after food and fluids.",
       "If useful later, record how many eggs and roughly how much shrimp paste makes the preferred version of this dish.",
-      "Confirm whether the steamed potato was eaten if it matters for today's food log."
+      "For future potato meals, notice whether potato size rather than the food itself determines when the meal starts to feel too bulky."
     ]
   }
 }
