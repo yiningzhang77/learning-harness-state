@@ -11,10 +11,10 @@
     },
     {
       "name": "eggs",
-      "quantity": 0,
+      "quantity": 30,
       "unit": "count",
-      "priority": "restock_planned",
-      "notes": "Two remaining eggs were eaten at breakfast on 2026-09-02. User plans to pick up the egg order on the evening of 2026-09-03, but pickup is not yet confirmed."
+      "priority": "normal",
+      "notes": "Previously planned 30-egg order was picked up on 2026-09-03."
     },
     {
       "name": "mangoes",
@@ -97,8 +97,8 @@
       "name": "shrimp paste",
       "quantity": 1,
       "unit": "bag",
-      "priority": "normal",
-      "notes": "One bag reported available on 2026-09-03; exact weight and date not reported."
+      "priority": "thawed_use_soon",
+      "notes": "One bag is thawed as of 2026-09-03; exact weight and date not reported."
     }
   ],
   "planned_purchases": [
@@ -107,14 +107,14 @@
       "name": "eggs",
       "quantity": 30,
       "unit": "count",
-      "status": "planned_pickup_2026-09-03"
+      "status": "picked_up_2026-09-03"
     }
   ],
   "meal_intentions": [
     {
       "date": "2026-09-03",
       "meal": "dinner",
-      "plan": "User is considering eggs, shrimp paste, and one steamed potato; old frozen chicken feet are under consideration but should only be used if storage history is sufficiently trustworthy."
+      "plan": "Use eggs and thawed shrimp paste with one steamed potato for a simple dinner."
     },
     {
       "date": "future_beef_meal",
