@@ -14,7 +14,7 @@
       "quantity": 30,
       "unit": "count",
       "priority": "normal",
-      "notes": "Previously planned 30-egg order was picked up on 2026-09-03."
+      "notes": "Previously planned 30-egg order was picked up on 2026-09-03. Exact number of eggs used for dinner on 2026-09-03 was not reported, so inventory was not decremented."
     },
     {
       "name": "mangoes",
@@ -32,10 +32,10 @@
     },
     {
       "name": "potatoes",
-      "quantity": 10,
+      "quantity": 9,
       "unit": "count",
       "priority": "normal",
-      "notes": "Current amount reported by user."
+      "notes": "One potato eaten with ketchup at dinner on 2026-09-03; user liked the combination but found one whole potato very substantial."
     },
     {
       "name": "dragon fruit",
@@ -98,7 +98,7 @@
       "quantity": 1,
       "unit": "bag",
       "priority": "thawed_use_soon",
-      "notes": "One bag is thawed as of 2026-09-03; exact weight and date not reported."
+      "notes": "One bag was thawed as of 2026-09-03 and some was used for dinner; exact amount remaining is unknown, so quantity is not decremented."
     }
   ],
   "planned_purchases": [
@@ -111,11 +111,6 @@
     }
   ],
   "meal_intentions": [
-    {
-      "date": "2026-09-03",
-      "meal": "dinner",
-      "plan": "Use eggs and thawed shrimp paste with one steamed potato for a simple dinner."
-    },
     {
       "date": "future_beef_meal",
       "meal": "unspecified",
