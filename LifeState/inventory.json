@@ -14,7 +14,7 @@
       "quantity": 0,
       "unit": "count",
       "priority": "restock_planned",
-      "notes": "Two remaining eggs were eaten at breakfast on 2026-09-02. User had planned to buy 30 more eggs on 2026-09-02, but purchase has not yet been confirmed."
+      "notes": "Two remaining eggs were eaten at breakfast on 2026-09-02. User plans to pick up the egg order on the evening of 2026-09-03, but pickup is not yet confirmed."
     },
     {
       "name": "mangoes",
@@ -56,7 +56,7 @@
       "quantity": 5,
       "unit": "kg",
       "priority": "refrigerator_partial_thaw",
-      "notes": "Bulk boneless beef was moved from freezer to refrigerator around midday on 2026-09-02. By early afternoon 2026-09-03, the exterior had softened while the center remained frozen hard. No beef has yet been portioned or consumed. User plans to portion and refreeze once the meat is firm but safely cuttable, before being away over the weekend if possible."
+      "notes": "Bulk boneless beef was moved from freezer to refrigerator around midday on 2026-09-02. By early afternoon 2026-09-03, the exterior had softened while the center remained frozen hard. No beef has yet been portioned or consumed."
     },
     {
       "name": "onions",
@@ -77,7 +77,7 @@
       "quantity": 1,
       "unit": "opened_package",
       "priority": "opened_store_cold",
-      "notes": "Package was opened on 2026-09-02; user ate 3 jinbing at breakfast. Exact number remaining is unknown. Store remaining pieces refrigerated for near-term use or frozen for longer storage."
+      "notes": "Package was opened on 2026-09-02; user ate 3 jinbing at breakfast. Exact number remaining is unknown."
     },
     {
       "name": "instant oats",
@@ -85,6 +85,20 @@
       "unit": "untracked",
       "priority": "pantry_staple",
       "notes": "User reports having plenty and does not want precise inventory tracking for oats."
+    },
+    {
+      "name": "frozen chicken feet",
+      "quantity": 1,
+      "unit": "bag",
+      "priority": "safety_check_before_use",
+      "notes": "User found one frozen bag whose labeled shelf-life/expiry appears to have ended around January 2025. User believes it has remained in the freezer, but continuous storage at about -18 C without thawing is not verified."
+    },
+    {
+      "name": "shrimp paste",
+      "quantity": 1,
+      "unit": "bag",
+      "priority": "normal",
+      "notes": "One bag reported available on 2026-09-03; exact weight and date not reported."
     }
   ],
   "planned_purchases": [
@@ -93,10 +107,15 @@
       "name": "eggs",
       "quantity": 30,
       "unit": "count",
-      "status": "planned"
+      "status": "planned_pickup_2026-09-03"
     }
   ],
   "meal_intentions": [
+    {
+      "date": "2026-09-03",
+      "meal": "dinner",
+      "plan": "User is considering eggs, shrimp paste, and one steamed potato; old frozen chicken feet are under consideration but should only be used if storage history is sufficiently trustworthy."
+    },
     {
       "date": "future_beef_meal",
       "meal": "unspecified",
