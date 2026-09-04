@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-03",
+  "as_of": "2026-09-04",
   "timezone": "Asia/Shanghai",
   "items": [
     {
@@ -55,8 +55,8 @@
       "name": "beef short ribs",
       "quantity": 5,
       "unit": "kg",
-      "priority": "refrigerator_partial_thaw",
-      "notes": "Bulk boneless beef was moved from freezer to refrigerator around midday on 2026-09-02. By early afternoon 2026-09-03, the exterior had softened while the center remained frozen hard. No beef has yet been portioned or consumed."
+      "priority": "mostly_refrozen_portioned",
+      "notes": "Bulk boneless beef was refrigerator-thawed and separated on 2026-09-04. User confirmed the remaining beef was portioned into bags and returned to the freezer; one natural strip was kept out as the planned lunch portion. Exact bag count and individual weights were not measured, and no beef has yet been confirmed eaten, so total inventory is not decremented."
     },
     {
       "name": "onions",
@@ -112,9 +112,14 @@
   ],
   "meal_intentions": [
     {
+      "date": "2026-09-04",
+      "meal": "lunch",
+      "plan": "Use one natural beef strip as the first one-meal portion calibration; exact weight unavailable."
+    },
+    {
       "date": "future_beef_meal",
       "meal": "unspecified",
-      "plan": "Use one calibrated daily portion of the bulk boneless beef, likely around 400-500 g raw for two meals, then adjust after the first real batch based on appetite and leftovers."
+      "plan": "Use one of the refrozen natural-strip portions and adjust future portioning based on the first real meal's satiety and leftovers rather than a fixed gram target."
     },
     {
       "date": "future_second_beef_rib_meal",
