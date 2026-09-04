@@ -22,16 +22,20 @@
         "one natural strip/section of boneless beef, cut into chunks and stewed in a rice cooker",
         "onion",
         "beef/lamb spice sachet",
-        "stew broth"
+        "stew broth",
+        "potato",
+        "ketchup"
       ],
       "amounts": [
         "one natural strip; exact raw weight unavailable",
         "some onion; exact amount not reported",
         "one small sachet used during cooking",
-        "one bowl served; whether all broth was consumed not yet confirmed"
+        "one bowl served; whether all broth was consumed not yet confirmed",
+        "amount not precisely reported",
+        "amount not reported"
       ],
       "meal_duration_minutes": null,
-      "notes": "User reported the beef itself tasted a little bland, but the spice sachet gave the broth a strong, fragrant lingering sweetness/aroma, making the low-salt profile enjoyable. User asked whether the resulting broth is safe/appropriate to drink."
+      "notes": "User described the beef as extremely bland on first contact but very fragrant and satisfying once chewed, with the spice sachet giving the broth a strong lingering sweetness/aroma. The contrast made the potato taste notably sweet and fragrant by comparison; user strongly enjoyed potato dipped in ketchup and described ketchup as exceptionally satisfying."
     }
   ],
   "exercise": [],
@@ -54,21 +58,24 @@
       "This retrospective evidence makes sleepiness/fatigue a stronger explanation for at least part of the prior evening's soft, lazy body state than it appeared in real time.",
       "The thawed beef naturally separates into long muscle strips, making one-strip-per-meal portioning a practical calibration strategy without needing to force equal cuts.",
       "The bulk beef portioning task is closed for the weekend: remaining portions were bagged and refrozen, with one strip cooked for lunch.",
-      "The first beef calibration meal produced a strong positive flavor response to the spice-broth profile despite the meat itself tasting relatively bland, suggesting that a lighter-salt broth can still be satisfying when aromatic complexity is high."
+      "The first beef calibration meal produced a strong positive flavor response to the spice-broth profile despite the meat itself tasting relatively bland, suggesting that aromatic complexity can make a low-salt preparation satisfying.",
+      "The bland-savory beef increased the perceived sweetness/aroma of the potato, and ketchup strongly improved the potato eating experience."
     ],
     "uncertainties": [
       "Exact sleep onset time and total sleep duration are unknown.",
       "The exact raw weight of the lunch beef strip is unknown.",
       "It is not yet confirmed how much of the broth the user drank or how filling one strip ultimately felt after the meal.",
-      "Exact amount of onion used is not known."
+      "Exact amount of onion and potato consumed is not known."
     ],
     "exploratory_questions": [
       "After finishing the meal, did one strip feel like a comfortable one-meal beef portion?",
-      "Does the aromatic, lower-salt broth remain satisfying without needing extra soy sauce or salt in future batches?"
+      "Does the aromatic, lower-salt broth remain satisfying without needing extra soy sauce or salt in future batches?",
+      "Does potato with ketchup continue to feel especially satisfying across meals, or was today's effect amplified by the very mild beef?"
     ],
     "next_observations": [
       "Use satiety after this meal to calibrate future one-strip portions.",
-      "Notice whether future batches taste best with the spice sachet removed partway through or left longer, rather than increasing salt by default."
+      "Notice whether future batches taste best with the spice sachet removed partway through or left longer, rather than increasing salt by default.",
+      "Keep potato-plus-ketchup as a low-friction positive option and observe preferred portion size rather than making it a fixed rule."
     ]
   }
 }
