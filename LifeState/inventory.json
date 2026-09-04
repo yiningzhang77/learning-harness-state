@@ -53,17 +53,17 @@
     },
     {
       "name": "beef short ribs",
-      "quantity": 5,
-      "unit": "kg",
-      "priority": "mostly_refrozen_portioned",
-      "notes": "Bulk boneless beef was refrigerator-thawed and separated on 2026-09-04. User confirmed the remaining beef was portioned into bags and returned to the freezer; one natural strip was kept out as the planned lunch portion. Exact bag count and individual weights were not measured, and no beef has yet been confirmed eaten, so total inventory is not decremented."
+      "quantity": null,
+      "unit": "remaining_weight_untracked",
+      "priority": "refrozen_portioned",
+      "notes": "Original bulk amount was about 5 kg. On 2026-09-04, user portioned the thawed beef into freezer bags and refroze the remainder, keeping one natural strip out and cooking/eating it for lunch. Because no kitchen scale was available, the exact remaining weight and per-bag weights are unknown."
     },
     {
       "name": "onions",
-      "quantity": 2,
-      "unit": "count",
+      "quantity": null,
+      "unit": "partially_tracked_count",
       "priority": "normal",
-      "notes": "Current amount reported by user."
+      "notes": "Inventory previously contained 2 onions. Some onion was used in the 2026-09-04 beef stew; exact fraction used and exact remaining count-equivalent are unknown."
     },
     {
       "name": "corn on the cob",
@@ -112,14 +112,9 @@
   ],
   "meal_intentions": [
     {
-      "date": "2026-09-04",
-      "meal": "lunch",
-      "plan": "Use one natural beef strip as the first one-meal portion calibration; exact weight unavailable."
-    },
-    {
       "date": "future_beef_meal",
       "meal": "unspecified",
-      "plan": "Use one of the refrozen natural-strip portions and adjust future portioning based on the first real meal's satiety and leftovers rather than a fixed gram target."
+      "plan": "Use one of the refrozen natural-strip portions and adjust future portioning based on the first meal's satiety and leftovers rather than a fixed gram target."
     },
     {
       "date": "future_second_beef_rib_meal",
