@@ -17,15 +17,21 @@
     {
       "time": "lunch",
       "meal": "lunch",
-      "status": "planned",
+      "status": "eaten",
       "items": [
-        "one natural strip/section of thawed boneless beef"
+        "one natural strip/section of boneless beef, cut into chunks and stewed in a rice cooker",
+        "onion",
+        "beef/lamb spice sachet",
+        "stew broth"
       ],
       "amounts": [
-        "visual estimate only; likely roughly 180-300 g raw, exact weight unavailable"
+        "one natural strip; exact raw weight unavailable",
+        "some onion; exact amount not reported",
+        "one small sachet used during cooking",
+        "one bowl served; whether all broth was consumed not yet confirmed"
       ],
       "meal_duration_minutes": null,
-      "notes": "User is keeping one whole natural beef strip out as a one-meal portion and plans to cook it in the rice cooker. Exact weight is unknown because no kitchen scale is available."
+      "notes": "User reported the beef itself tasted a little bland, but the spice sachet gave the broth a strong, fragrant lingering sweetness/aroma, making the low-salt profile enjoyable. User asked whether the resulting broth is safe/appropriate to drink."
     }
   ],
   "exercise": [],
@@ -46,25 +52,23 @@
     "observed_patterns": [
       "The previous evening's ambiguous 'dizzy versus sleepy versus tired' state later evolved into unmistakably strong sleepiness and a main sleep episode ending at 07:00.",
       "This retrospective evidence makes sleepiness/fatigue a stronger explanation for at least part of the prior evening's soft, lazy body state than it appeared in real time.",
-      "The user still completed a small household task sequence before bed: testing the floor cleaner, emptying wastewater, and setting the device to charge.",
       "The thawed beef naturally separates into long muscle strips, making one-strip-per-meal portioning a practical calibration strategy without needing to force equal cuts.",
-      "The bulk beef portioning task is now effectively closed for the weekend: remaining portions were bagged and refrozen, with one strip held out for lunch."
+      "The bulk beef portioning task is closed for the weekend: remaining portions were bagged and refrozen, with one strip cooked for lunch.",
+      "The first beef calibration meal produced a strong positive flavor response to the spice-broth profile despite the meat itself tasting relatively bland, suggesting that a lighter-salt broth can still be satisfying when aromatic complexity is high."
     ],
     "uncertainties": [
       "Exact sleep onset time and total sleep duration are unknown.",
-      "The earlier mild dizziness cannot be retrospectively ruled in or out as hypoglycemia because there was no glucose measurement and multiple factors were present.",
-      "It is not yet known whether the unusually strong sleepiness reflected accumulated sleep debt, the 130-minute rehabilitation session, the outing and travel, the long interval between meals, or a combination.",
-      "The exact raw weight of the pictured beef strip is unknown; visual estimation is approximate and should be calibrated by actual satiety after eating."
+      "The exact raw weight of the lunch beef strip is unknown.",
+      "It is not yet confirmed how much of the broth the user drank or how filling one strip ultimately felt after the meal.",
+      "Exact amount of onion used is not known."
     ],
     "exploratory_questions": [
-      "After waking at 07:00, does the user feel genuinely reset and physically comfortable, or still unusually heavy or sleepy?",
-      "On future rehabilitation days, does a similar sequence recur: reduced body tension followed by strong evening sleepiness and earlier sleep?",
-      "Does one whole beef strip plus a normal starch/vegetable side feel like a comfortable one-meal portion without leftovers or underfeeding?"
+      "After finishing the meal, did one strip feel like a comfortable one-meal beef portion?",
+      "Does the aromatic, lower-salt broth remain satisfying without needing extra soy sauce or salt in future batches?"
     ],
     "next_observations": [
-      "If the user remembers the approximate bedtime later, add it so the overnight sleep duration can be estimated.",
-      "Notice whether the morning after this early, high-sleep-pressure night feels more restored than recent mornings.",
-      "Use the first one-strip lunch as a portion calibration rather than treating the visual estimate as a fixed serving rule."
+      "Use satiety after this meal to calibrate future one-strip portions.",
+      "Notice whether future batches taste best with the spice sachet removed partway through or left longer, rather than increasing salt by default."
     ]
   }
 }
